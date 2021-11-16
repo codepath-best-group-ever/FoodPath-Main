@@ -127,6 +127,30 @@ Helps users recognize an unknown food dish through image recognition and by spec
 	- (Read/GET) query all recognized food dishes from food search api
 - Details of Recipes
 	- (Create/POST) upload name of food dish to recipe search api
+
+          ```
+          var unirest = require("unirest");
+
+          var req = unirest("GET", "https://mytweetmark-homecook.p.rapidapi.com/markets");
+
+          req.query({
+		"searchMarket": "San"
+		     });
+
+	req.headers({
+	"x-rapidapi-key": "SIGN-UP-FOR-KEY",
+	"x-rapidapi-host": "mytweetmark-homecook.p.rapidapi.com",
+	"useQueryString": true
+	            });
+
+
+	req.end(function (res) {
+	if (res.error) throw new Error(res.error);
+
+	console.log(res.body);
+			});
+  
+        ```
 	- (Read/GET) query all recipes related to food dish
 
 ### [Optional] Existing API endpoints
