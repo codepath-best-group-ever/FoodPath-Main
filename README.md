@@ -128,3 +128,12 @@ Helps users recognize an unknown food dish through image recognition and by spec
 - Details of Recipes
 	- (Create/POST) upload name of food dish to recipe search api
 	- (Read/GET) query all recipes related to food dish
+
+### [Optional] Existing API endpoints
+Google Cloud Vision API - label_detection
+|HTTP Verb|Endpoint|Description|
+|:----:|:----:|:----:|
+|`GET`|/mid|if present, contains a machine-generated identifier (MID) corresponding to the entity's Google Knowledge Graph entry|
+|`GET`|/description|the label description|
+|`GET`|/score|the confidence score, which ranges from 0 (no confidence) to 1 (very high confidence)|
+|`GET`|/topicality|The relevancy of the ICA (Image Content Annotation) label to the image. It measures how important/central a label is to the overall context of a page|
