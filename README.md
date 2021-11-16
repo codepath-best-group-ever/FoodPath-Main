@@ -90,12 +90,50 @@ Helps users recognize an unknown food dish through image recognition and by spec
 
 ## Schema
 ### Models
-#### checkIngredients
+#### checkIngredients/getIngredientsFromAPI
 |Property	|Type		|Description		|
 |:----:		|:----:		|:----:			|
-|ingredientId	|Integer	|unique identifier for predefined ingredient|
-|ingredientName	|String		|name of predefined ingredient|
-|isChecked	|Boolean	|boolean value to check if ingredient has been selected (True/False)|
+|ingredientId	|INT	|unique identifier for predefined ingredient|
+|ingredientName	|STRING		|name of predefined ingredient|
+|isChecked	|BOOL	|boolean value to check if ingredient has been selected (True/False)|
+
+#### choooseIngredients
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  ingredientId   | INT     |  unique identifier for predefined ingredient    |
+| ingrediemntName| STRING| name for predefined ingredient
+
+#### postImage
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  imageId   | INT     |  unique identifier for image    |
+| image| FILE| image that user uploads
+
+#### getIngredientsFromAPI
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  ingredientId   | INT     |  unique identifier for predefined ingredient    |
+| ingrediemntName| STRING| name for predefined ingredient
+
+#### postDish
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  imageID   | INT     |  unique identifier for image    |
+| image|FILE| image that user uploads|
+|ingredientDict| DICT| dictionary to store all ingredients specified by user, identified by ingredientId|
+
+#### getFoodFromAPI/postSearch
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  foodId   | INT     |  unique identifier for food dish |
+| foodName| STRING| food dish that is recommended by the API|
+
+#### getRecipesFromAPI
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  websiteTitle   | STRING|name of website |
+| websiteURL| LINK| link to website|
+
 
 ### Networking
 #### List of network requests by screen
@@ -106,6 +144,20 @@ Helps users recognize an unknown food dish through image recognition and by spec
 	- (Create/POST) upload an image for image recognition 
 - Image Recognition Details
 	- (Read/GET) query all recognized ingredients from list of predefined ingredients from uploaded image using image recognition API
+	```
+	let labeler = Vision.vision().cloudImageLabeler()
+ 	labeler.process(image) { labels, error in
+		guard error == nil, let labels = labels else { return }
+
+		// Task succeeded.
+		// ...
+ 	}
+ 	for label in labels {
+		let labelText = label.text
+		let entityId = label.entityID
+		let confidence = label.confidence
+ 	}
+	```
 	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
 - Food Picker
 	- (Read/GET) query all selected predefined ingredients
@@ -114,3 +166,12 @@ Helps users recognize an unknown food dish through image recognition and by spec
 - Details of Recipes
 	- (Create/POST) upload name of food dish to recipe search api
 	- (Read/GET) query all recipes related to food dish
+
+### [Optional] Existing API endpoints
+Google Cloud Vision API - label_detection
+|HTTP Verb|Endpoint|Description|
+|:----:|:----:|:----:|
+|`GET`|/mid|if present, contains a machine-generated identifier (MID) corresponding to the entity's Google Knowledge Graph entry|
+|`GET`|/description|the label description|
+|`GET`|/score|the confidence score, which ranges from 0 (no confidence) to 1 (very high confidence)|
+|`GET`|/topicality|The relevancy of the ICA (Image Content Annotation) label to the image. It measures how important/central a label is to the overall context of a page|
