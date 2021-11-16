@@ -106,18 +106,20 @@ Helps users recognize an unknown food dish through image recognition and by spec
 	- (Create/POST) upload an image for image recognition 
 - Image Recognition Details
 	- (Read/GET) query all recognized ingredients from list of predefined ingredients from uploaded image using image recognition API
-``let labeler = Vision.vision().cloudImageLabeler()
- labeler.process(image) { labels, error in
-	guard error == nil, let labels = labels else { return }
+	```
+	let labeler = Vision.vision().cloudImageLabeler()
+ 	labeler.process(image) { labels, error in
+		guard error == nil, let labels = labels else { return }
 
-	// Task succeeded.
-	// ...
- }
- for label in labels {
-	let labelText = label.text
-	let entityId = label.entityID
-	let confidence = label.confidence
- }``
+		// Task succeeded.
+		// ...
+ 	}
+ 	for label in labels {
+		let labelText = label.text
+		let entityId = label.entityID
+		let confidence = label.confidence
+ 	}
+	```
 	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
 - Food Picker
 	- (Read/GET) query all selected predefined ingredients
