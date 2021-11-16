@@ -1,8 +1,9 @@
 # FoodPath
 ## Table of Contents
 1. [Overview](#Overview)
-1. [Product Spec](#Product-Spec)
-1. [Wireframes](#Wireframes)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
 
 ## Overview
 ### Description
@@ -87,4 +88,29 @@ Helps users recognize an unknown food dish through image recognition and by spec
 ### [BONUS] Digital Wireframes & Mockups
 ![](https://i.imgur.com/uTD3Gyd.jpg)
 
+## Schema
+### Models
+#### checkIngredients
+|Property	|Type		|Description		|
+|:----:		|:----:		|:----:			|
+|ingredientId	|Integer	|unique identifier for predefined ingredient|
+|ingredientName	|String		|name of predefined ingredient|
+|isChecked	|Boolean	|boolean value to check if ingredient has been selected (True/False)|
 
+### Networking
+#### List of network requests by screen
+- Stream
+	- (Read/GET) query all predefined ingredients whose name is query string
+	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
+- Camera
+	- (Create/POST) upload an image for image recognition 
+- Image Recognition Details
+	- (Read/GET) query all recognized ingredients from list of predefined ingredients from uploaded image using image recognition API
+	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
+- Food Picker
+	- (Read/GET) query all selected predefined ingredients
+	- (Create/POST) upload either both image and list of selected ingredients or just the list of selected ingredients to food search api 
+	- (Read/GET) query all recognized food dishes from food search api
+- Details of Recipes
+	- (Create/POST) upload name of food dish to recipe search api
+	- (Read/GET) query all recipes related to food dish
