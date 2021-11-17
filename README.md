@@ -38,26 +38,26 @@ Helps users recognize an unknown food dish through image recognition and by spec
     - User can discover various recipes (get recommendations) 
 * Stream
     - User can select from a predefined list of ingredients
-	- User can access camera to take a picture of their food
-	- User can see a list of recent searches *(optional)*
+    - User can access camera to take a picture of their food
+    - User can see a list of recent searches *(optional)*
 * Camera
-	- User can take a picture of their food
+    - User can take a picture of their food
 * Image Recognition Details
     - User can verify/uncheck the ingredients that were recognized from the image recognition api
 * Food Picker 
-	- User can select from a list of recommended food dishes
+    - User can select from a list of recommended food dishes
 * Details of Recipes 
     - User can select from multiple recommended recipes 
     - User can save their favorite recipes *(optional)*
-    - User gets redirected to the website of the recipe	
+    - User gets redirected to the website of the recipe    
 * Settings *(optional)*
-    - User can change the settings of the app	
+    - User can change the settings of the app    
 
 ### 3. Navigation
 **Nav Bar:**
 *    Back Button
 *    Home button
-		
+        
 **Flow Navigation:**
 * Discover Today *(optional)*
 &#8594; Stream
@@ -90,68 +90,121 @@ Helps users recognize an unknown food dish through image recognition and by spec
 
 ## Schema
 ### Models
-#### checkIngredients
-|Property	|Type		|Description		|
-|:----:		|:----:		|:----:			|
-|ingredientId	|Integer	|unique identifier for predefined ingredient|
-|ingredientName	|String		|name of predefined ingredient|
-|isChecked	|Boolean	|boolean value to check if ingredient has been selected (True/False)|
+#### checkIngredients/getIngredientsFromAPI
+|Property    |Type        |Description        |
+|:----:        |:----:        |:----:            |
+|ingredientId    |INT    |unique identifier for predefined ingredient|
+|ingredientName    |STRING        |name of predefined ingredient|
+|isChecked    |BOOL    |boolean value to check if ingredient has been selected (True/False)|
+
+#### choooseIngredients
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  ingredientId   | INT     |  unique identifier for predefined ingredient    |
+| ingrediemntName| STRING| name for predefined ingredient
+
+#### postImage
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  imageId   | INT     |  unique identifier for image    |
+| image| FILE| image that user uploads
+
+#### getIngredientsFromAPI
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  ingredientId   | INT     |  unique identifier for predefined ingredient    |
+| ingrediemntName| STRING| name for predefined ingredient
+
+#### postDish
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  imageID   | INT     |  unique identifier for image    |
+| image|FILE| image that user uploads|
+|ingredientDict| DICT| dictionary to store all ingredients specified by user, identified by ingredientId|
+
+#### getFoodFromAPI/postSearch
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  foodId   | INT     |  unique identifier for food dish |
+| foodName| STRING| food dish that is recommended by the API|
+
+#### getRecipesFromAPI
+| Property | Type | Description |
+| -------- | -------- | -------- |
+|  websiteTitle   | STRING|name of website |
+| websiteURL| LINK| link to website|
 
 ### Networking
 #### List of network requests by screen
 - Stream
-	- (Read/GET) query all predefined ingredients whose name is query string
-	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
+    - (Read/GET) query all predefined ingredients whose name is query string
+    - (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
 - Camera
-	- (Create/POST) upload an image for image recognition 
+    - (Create/POST) upload an image for image recognition 
 - Image Recognition Details
-	- (Read/GET) query all recognized ingredients from list of predefined ingredients from uploaded image using image recognition API
-	```
-	let labeler = Vision.vision().cloudImageLabeler()
- 	labeler.process(image) { labels, error in
-		guard error == nil, let labels = labels else { return }
+    - (Read/GET) query all recognized ingredients from list of predefined ingredients from uploaded image using image recognition API
+    ```
+    let labeler = Vision.vision().cloudImageLabeler()
+     labeler.process(image) { labels, error in
+        guard error == nil, let labels = labels else { return }
 
-		// Task succeeded.
-		// ...
- 	}
- 	for label in labels {
-		let labelText = label.text
-		let entityId = label.entityID
-		let confidence = label.confidence
- 	}
-	```
-	- (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
+        // Task succeeded.
+        // ...
+     }
+     for label in labels {
+        let labelText = label.text
+        let entityId = label.entityID
+        let confidence = label.confidence
+     }
+    ```
+    - (Update/PUT) update checked value of predefined ingredient (isChecked is True/False)
 - Food Picker
-	- (Read/GET) query all selected predefined ingredients
-	- (Create/POST) upload either both image and list of selected ingredients or just the list of selected ingredients to food search api 
-	- (Read/GET) query all recognized food dishes from food search api
+    - (Read/GET) query all selected predefined ingredients
+    - (Create/POST) upload either both image and list of selected ingredients or just the list of selected ingredients to food search api 
+    - (Read/GET) query all recognized food dishes from food search api
+    
+    ```
+    let url = URL(string: someString)!
+        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        let task = session.dataTask(with: request) { (data, response, error) in
+             if let error = error {
+                    print(error.localizedDescription)
+             } else if let data = data {
+                    let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                    
+                 let foods = dataDictionary["recipes_results"] as! [[String:Any]]
+                 
+                 //Prints out each possible recipe
+                 for recipe in foods {
+                     print(recipe["title"] as! String)
+ 
+    ```
 - Details of Recipes
-	- (Create/POST) upload name of food dish to recipe search api
+    - (Create/POST) upload name of food dish to recipe search api
+    - (Read/GET) query all recipes related to food dish
 
           ```
           var unirest = require("unirest");
-
           var req = unirest("GET", "https://mytweetmark-homecook.p.rapidapi.com/markets");
 
-          req.query({
-		"searchMarket": "San"
-		     });
+             seq.query({
+            "searchMarket": "San" });
 
-	req.headers({
-	"x-rapidapi-key": "SIGN-UP-FOR-KEY",
-	"x-rapidapi-host": "mytweetmark-homecook.p.rapidapi.com",
-	"useQueryString": true
-	            });
+            req.headers({
+            "x-rapidapi-key": "SIGN-UP-FOR-KEY",
+            "x-rapidapi-host": "mytweetmark-homecook.p.rapidapi.com",
+            "useQueryString": true
+                        });
 
 
-	req.end(function (res) {
-	if (res.error) throw new Error(res.error);
+            req.end(function (res) {
+            if (res.error) throw new Error(res.error);
 
-	console.log(res.body);
-			});
-  
-        ```
-	- (Read/GET) query all recipes related to food dish
+            console.log(res.body);
+                    });
+
+    
 
 ### [Optional] Existing API endpoints
 Google Cloud Vision API - label_detection
@@ -161,3 +214,5 @@ Google Cloud Vision API - label_detection
 |`GET`|/description|the label description|
 |`GET`|/score|the confidence score, which ranges from 0 (no confidence) to 1 (very high confidence)|
 |`GET`|/topicality|The relevancy of the ICA (Image Content Annotation) label to the image. It measures how important/central a label is to the overall context of a page|
+
+
