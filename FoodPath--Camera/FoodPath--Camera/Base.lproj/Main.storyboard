@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Stream View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="StreamViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV3-fr-H5K">
+                                <rect key="frame" x="329" y="0.0" width="75" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Camera"/>
+                                <connections>
+                                    <action selector="didPressButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fkp-ZS-nDW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hV3-fr-H5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="POh-tB-mJp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hV3-fr-H5K" secondAttribute="trailing" constant="10" id="raO-8c-dMf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="hV3-fr-H5K" id="ftn-o9-gzd"/>
+                        <segue destination="cc5-hy-KDb" kind="presentation" identifier="goToImageRecognition" id="Q8M-FF-1pT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45" y="68"/>
+        </scene>
+        <!--Image Recognition View Controller-->
+        <scene sceneID="7ht-RF-DZr">
+            <objects>
+                <viewController id="cc5-hy-KDb" customClass="ImageRecognitionViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lTj-8b-Qzc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G7B-A0-hZG">
+                                <rect key="frame" x="10" y="77" width="394" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="Jy2-B4-lkv"/>
+                                </constraints>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVD-Iw-j1x">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <items>
+                                    <navigationItem id="BCj-8V-oa6">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="2Lx-0C-LVZ">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" id="XtR-PY-yib"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food items identified from your picture:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhm-Ts-acd">
+                                <rect key="frame" x="20" y="443" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select ingredients to see recipes!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FON-aM-e8s">
+                                <rect key="frame" x="20" y="475" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vtw-Z4-6Kz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="top" secondItem="lTj-8b-Qzc" secondAttribute="top" constant="77" id="2Na-Jd-Ekv"/>
+                            <constraint firstItem="vtw-Z4-6Kz" firstAttribute="trailing" secondItem="G7B-A0-hZG" secondAttribute="trailing" constant="10" id="2sX-8O-IZU"/>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="top" secondItem="eVD-Iw-j1x" secondAttribute="bottom" constant="33" id="2uo-cQ-qHt"/>
+                            <constraint firstItem="FON-aM-e8s" firstAttribute="centerX" secondItem="eVD-Iw-j1x" secondAttribute="centerX" id="AOe-6z-Xg2"/>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="centerX" secondItem="eVD-Iw-j1x" secondAttribute="centerX" id="BmP-5R-vEy"/>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="centerX" secondItem="FON-aM-e8s" secondAttribute="centerX" id="Sw6-Ir-gXZ"/>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="leading" secondItem="vtw-Z4-6Kz" secondAttribute="leading" constant="10" id="VJ8-jY-3KH"/>
+                            <constraint firstItem="Xhm-Ts-acd" firstAttribute="leading" secondItem="vtw-Z4-6Kz" secondAttribute="leading" constant="20" id="VoU-zK-3EH"/>
+                            <constraint firstItem="eVD-Iw-j1x" firstAttribute="leading" secondItem="lTj-8b-Qzc" secondAttribute="leading" id="WKx-Fz-mFF"/>
+                            <constraint firstItem="vtw-Z4-6Kz" firstAttribute="trailing" secondItem="FON-aM-e8s" secondAttribute="trailing" constant="20" id="azm-9c-6Uv"/>
+                            <constraint firstItem="FON-aM-e8s" firstAttribute="top" secondItem="Xhm-Ts-acd" secondAttribute="bottom" constant="8" symbolic="YES" id="dbZ-wE-mbx"/>
+                            <constraint firstItem="vtw-Z4-6Kz" firstAttribute="trailing" secondItem="Xhm-Ts-acd" secondAttribute="trailing" constant="20" id="hZY-Pr-sCn"/>
+                            <constraint firstItem="Xhm-Ts-acd" firstAttribute="top" secondItem="G7B-A0-hZG" secondAttribute="bottom" constant="16" id="k6b-Oj-eQT"/>
+                            <constraint firstItem="FON-aM-e8s" firstAttribute="leading" secondItem="vtw-Z4-6Kz" secondAttribute="leading" constant="20" id="lQm-OT-rBN"/>
+                            <constraint firstItem="G7B-A0-hZG" firstAttribute="centerX" secondItem="Xhm-Ts-acd" secondAttribute="centerX" id="sGd-qd-sjO"/>
+                            <constraint firstItem="eVD-Iw-j1x" firstAttribute="top" secondItem="vtw-Z4-6Kz" secondAttribute="top" id="uCf-5T-PvY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="G7B-A0-hZG" id="8q5-jt-LR1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6D-uX-8En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057.9710144927537" y="67.633928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
