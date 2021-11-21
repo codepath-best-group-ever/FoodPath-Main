@@ -1,5 +1,5 @@
 //
-//  foodpathApp.swift
+//  objectIdentifierAppApp.swift
 //  Shared
 //
 //  Created by Eugene Tye on 11/20/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct foodpathApp: App {
+struct objectIdentifierAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
