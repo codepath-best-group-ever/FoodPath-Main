@@ -2,7 +2,7 @@
 //  objectIdentifierUITestsLaunchTests.swift
 //  objectIdentifierUITests
 //
-//  Created by Eugene Tye on 11/20/21.
+//  Created by Elaine Chan on 11/20/21.
 //
 
 import XCTest
