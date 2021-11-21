@@ -16,7 +16,7 @@
 		44B777DB2749E9BB00759104 /* objectIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B777DA2749E9BB00759104 /* objectIdentifierTests.swift */; };
 		44B777E52749E9BB00759104 /* objectIdentifierUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B777E42749E9BB00759104 /* objectIdentifierUITests.swift */; };
 		44B777E72749E9BB00759104 /* objectIdentifierUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B777E62749E9BB00759104 /* objectIdentifierUITestsLaunchTests.swift */; };
-		44B777F42749E9FA00759104 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 44B777F32749E9FA00759104 /* YOLOv3.mlmodel */; };
+		44B777F6274A040000759104 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 44B777F5274A040000759104 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		44B777E02749E9BB00759104 /* objectIdentifierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = objectIdentifierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B777E42749E9BB00759104 /* objectIdentifierUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectIdentifierUITests.swift; sourceTree = "<group>"; };
 		44B777E62749E9BB00759104 /* objectIdentifierUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = objectIdentifierUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		44B777F32749E9FA00759104 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = YOLOv3.mlmodel; path = ../../../../../Downloads/YOLOv3.mlmodel; sourceTree = "<group>"; };
+		44B777F5274A040000759104 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Resnet50.mlmodel; path = ../../../../../Downloads/Resnet50.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		44B777C22749E9BA00759104 /* objectIdentifier */ = {
 			isa = PBXGroup;
 			children = (
-				44B777F32749E9FA00759104 /* YOLOv3.mlmodel */,
+				44B777F5274A040000759104 /* Resnet50.mlmodel */,
 				44B777C32749E9BA00759104 /* AppDelegate.swift */,
 				44B777C52749E9BA00759104 /* SceneDelegate.swift */,
 				44B777C72749E9BA00759104 /* ViewController.swift */,
@@ -263,7 +263,7 @@
 			files = (
 				44B777C82749E9BA00759104 /* ViewController.swift in Sources */,
 				44B777C42749E9BA00759104 /* AppDelegate.swift in Sources */,
-				44B777F42749E9FA00759104 /* YOLOv3.mlmodel in Sources */,
+				44B777F6274A040000759104 /* Resnet50.mlmodel in Sources */,
 				44B777C62749E9BA00759104 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

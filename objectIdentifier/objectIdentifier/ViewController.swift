@@ -35,7 +35,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     // image identifier api using coreML and vision
     func imageIdentifier(image:UIImage){
-        guard let model = try? VNCoreMLModel(for:YOLOv3().model) else {
+        guard let model = try? VNCoreMLModel(for:Resnet50().model) else {
             fatalError("cannot load ML model")
         }
         let request = VNCoreMLRequest(model:model){
