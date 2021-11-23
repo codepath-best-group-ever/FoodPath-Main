@@ -21,7 +21,9 @@ Helps users recognize an unknown food dish through image recognition and by spec
 ### 1. User Stories (Required and Optional)
 **Required Must-have Stories**
 - [ ] User can select from a predefined list of ingredients
-- [ ] User can access camera to take a picture of their food
+- [x] User can access camera to take a picture of their food
+<img src="https://i.imgur.com/n9ReLdz.gif" width=250><br>
+
 - [ ] User can check to see if the ingredients recognized are required/wanted
 - [ ] User can select the from a list of recommended food dishes
 - [ ] User can select from a list of recommended recipes
