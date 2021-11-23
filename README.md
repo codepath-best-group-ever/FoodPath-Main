@@ -17,16 +17,16 @@ Helps users recognize an unknown food dish through image recognition and by spec
 - **Habit:** This app could be used as often or unoften as the user wanted depending on how interested they are in cooking. This app aims to also increase the user's interest in cooking.
 - **Scope:** First we would ensure that the app successfully recognizes the unknown food dish through image recognition and by specifying its ingredients. From there, our app will recommend a few dishes based off the results above, of which will then recommend a list of recipes accordingly. In the future, we are looking to implement more features to enhance the user's experience, such as through daily recommendations of recipes, history tracking etc.
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+<img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250 height=500><br>
+
 ## Product Spec
 ### 1. User Stories (Required and Optional)
 **Required Must-have Stories**
 - [ ] User can select from a predefined list of ingredients
 - [x] User can access camera to take a picture of their food
-<img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250><br>
-
-
-
-
 - [ ] User can check to see if the ingredients recognized are required/wanted
 - [ ] User can select the from a list of recommended food dishes
 - [ ] User can select from a list of recommended recipes
