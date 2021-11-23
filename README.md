@@ -22,7 +22,8 @@ Helps users recognize an unknown food dish through image recognition and by spec
 **Required Must-have Stories**
 - [ ] User can select from a predefined list of ingredients
 - [x] User can access camera to take a picture of their food
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif)
+<img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250><br>
+
 
 
 
