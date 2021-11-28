@@ -6,18 +6,26 @@
 //
 
 import UIKit
+import Parse
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
+        let parseConfig = ParseClientConfiguration {
+                    $0.applicationId = "aFW6isBoKWWT1DTChc3dm6J7iQDWd7E3TxOnRPNA"
+                    $0.clientKey = "GFrrXbxCy2V7dm9pbM7IjBmthippMWFrqS6D93Vy"
+                    $0.server = "https://parseapi.back4app.com"
+            }
+            Parse.initialize(with: parseConfig)
+        
+            return true
     }
 
-    // MARK: UISceneSession Lifecycle
+
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

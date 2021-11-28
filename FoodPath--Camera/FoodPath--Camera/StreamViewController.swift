@@ -6,15 +6,50 @@
 //
 
 import UIKit
+import Parse
 
-class StreamViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class StreamViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource{
     
     var picture: UIImage!
+    var ingredidents = [PFObject]()
     
     @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let query = PFQuery(className: "chooseIngredients")
+        query.findObjectsInBackground(block: { (ingredidents, error) in
+            if ingredidents != nil{
+                self.ingredidents = ingredidents!
+                self.tableView.reloadData()
+            }
+            
+        })
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ingredidents.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientsCell") as! IngredientsCell
+        
+        let ingredient = ingredidents[indexPath.row]
+        cell.ingredientNameLabel.text = ingredient["ingredientName"] as! String
+        
+        
+        return cell
+        
     }
     
 

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "89EE5C5E-998B-4BD8-8492-CB3C83232407"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodPath--Camera/IngredientsCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "IngredientsCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - d178ba561bd22ccc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.ingredientNameLabel.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - 38fba4d31becc0c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.ingredientNameLabel.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - 5afb71aea910cd4d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.ingredientNameLabel.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - 44d7165e197948"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.ingredientNameLabel.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - fb4ad251155476e2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; FoodPath__Camera.IngredientsCell"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "913C42E5-10D7-47E4-B913-F8B834D3BA4C - 507aaa4d858d49a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodPath__Camera.IngredientsCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;FoodPath__Camera.IngredientsCell&gt;"
+                  moduleName = "FoodPath--Camera"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kimchheu/Desktop/Untitled/FoodPath--Camera/FoodPath--Camera/IngredientsCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
