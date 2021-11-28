@@ -13,6 +13,7 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     var picture: UIImage!
     var ingredidents = [PFObject]()
     
+    
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,12 +48,43 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
         let ingredient = ingredidents[indexPath.row]
         cell.ingredientNameLabel.text = ingredient["ingredientName"] as! String
         
-        
         return cell
         
     }
     
+    
 
+   //**HERE IS THE CODE FOR CHANGING THE BOOLEAN VALUE**
+    @IBAction func didCheckIngredient(_ sender: Any) {
+        let indexPath = tableView.indexPathForSelectedRow
+
+        let cell = tableView.cellForRow(at: indexPath!) as! IngredientsCell
+
+        let ingredientCheck = PFObject(className: "checkIngredients")
+ 
+
+        if ((sender as AnyObject).isOn == true) {
+            ingredientCheck["isChecked"] = true
+            ingredientCheck["ingredientId"] = 1
+            ingredientCheck["ingredientName"] = cell.ingredientNameLabel.text
+
+
+            ingredientCheck.saveInBackground { (success, error) in
+                if success{
+                    self.dismiss(animated: true, completion: nil)
+                    print("Saved!")
+                }
+                else{
+                    print("Error: \(String(describing: error?.localizedDescription))")
+                }
+            }
+        }
+
+    }
+
+
+    
+    
     @IBAction func didPressButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
