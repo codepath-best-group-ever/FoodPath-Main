@@ -49,8 +49,9 @@ func callSearchAPI(){
         if error == nil{
             if let returnedObjects = objects{
                 for object in returnedObjects{
-                    if (object["isChecked"] != nil){
+                    if (object["isChecked"] as! NSNumber).boolValue{
                         userChecked.append(object["ingredientName"] as! String)
+                        print(object["ingredientName"] as! String)
                     }
                 }
             }
