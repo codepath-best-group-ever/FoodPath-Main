@@ -17,6 +17,7 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         

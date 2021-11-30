@@ -51,7 +51,6 @@ func callSearchAPI(){
                 for object in returnedObjects{
                     if (object["isChecked"] as! NSNumber).boolValue{
                         userChecked.append(object["ingredientName"] as! String)
-                        print(object["ingredientName"] as! String)
                     }
                 }
             }
@@ -121,6 +120,9 @@ func callSearchAPI(){
         }
         
     }
+    DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
 
 
 }
@@ -135,7 +137,6 @@ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> 
 }
 
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeOptionCell") as! RecipeOptionCell
     
     let ingredient = possibleFoods[indexPath.row]

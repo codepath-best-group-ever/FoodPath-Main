@@ -88,6 +88,7 @@
                     <navigationItem key="navigationItem" id="Sf1-YQ-czZ"/>
                     <connections>
                         <outlet property="cameraButton" destination="hV3-fr-H5K" id="ftn-o9-gzd"/>
+                        <outlet property="nextButton" destination="Bkn-wn-loh" id="iYa-Fr-VbA"/>
                         <outlet property="tableView" destination="UY5-gr-ia7" id="Spa-mi-aRS"/>
                         <segue destination="cc5-hy-KDb" kind="presentation" identifier="goToImageRecognition" id="Q8M-FF-1pT"/>
                     </connections>
