@@ -22,7 +22,8 @@ Helps users recognize an unknown food dish through image recognition and by spec
 Here's a walkthrough of implemented user stories:
 
 <img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250 height=500>
-<img src= "https://user-images.githubusercontent.com/71743181/143980201-8e79cdd5-efbc-4c77-9cec-80920675465b.mp4" width=250 height=500>
+<img src="./foodRecommenderAPI.mp4" width=250 height=500>
+
 
 ## Product Spec
 ### 1. User Stories (Required and Optional)
