@@ -15,6 +15,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var possibleFoods = [PFObject]()
     var foodSuggestions = [[String:Any]]()
+    let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         
         callSearchAPI()
+        myRefreshControl.addTarget(self, action: #selector(callSearchAPI), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
        }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +41,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-func callSearchAPI(){
+    @objc func callSearchAPI(){
     let checkedIngredients = PFQuery(className: "checkIngredients")
 
     var userChecked: [String] = []
@@ -120,9 +123,8 @@ func callSearchAPI(){
         }
         
     }
-    DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+    self.tableView.reloadData()
+    self.myRefreshControl.endRefreshing()
 
 
 }
