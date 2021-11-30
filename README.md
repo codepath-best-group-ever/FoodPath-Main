@@ -22,13 +22,15 @@ Helps users recognize an unknown food dish through image recognition and by spec
 Here's a walkthrough of implemented user stories:
 
 <img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250 height=500>
+<img src="https://images-ext-1.discordapp.net/external/rPbvmRbJFh11PZokpXcyUZLHCccI1zXQxaZk7N21Bt0/https/i.imgur.com/FToXoui.mp4" width=250 height=500>
 
 ## Product Spec
 ### 1. User Stories (Required and Optional)
 **Required Must-have Stories**
-- [ ] User can select from a predefined list of ingredients
+- [x] User can select from a predefined list of ingredients
+- [x] User can be recommended a food dish based off the image taken by user
 - [x] User can access camera to take a picture of their food
-- [ ] User can check to see if the ingredients recognized are required/wanted
+- [x] User can be recommended a list of food dishes based off the user's selected ingredients
 - [ ] User can select the from a list of recommended food dishes
 - [ ] User can select from a list of recommended recipes
 - [ ] User can be redirected to the website of the recipe
@@ -48,8 +50,6 @@ Here's a walkthrough of implemented user stories:
     - User can see a list of recent searches *(optional)*
 * Camera
     - User can take a picture of their food
-* Image Recognition Details
-    - User can verify/uncheck the ingredients that were recognized from the image recognition api
 * Food Picker 
     - User can select from a list of recommended food dishes
 * Details of Recipes 
@@ -72,14 +72,10 @@ Here's a walkthrough of implemented user stories:
 &#8594; Camera
 * Camera
 &#8594; Stream
-&#8594; Image Recognition Details
-* Image Recognition Details
-&#8594; Stream
 &#8594; Food Picker
 * Food Picker 
 &#8594; Stream
 &#8594; Details of Recipes
-&#8594; Image Recognition Details
 * Details of Recipes
 &#8594; Stream
 &#8594; Image/Name/bookmarking option *(optional)*
