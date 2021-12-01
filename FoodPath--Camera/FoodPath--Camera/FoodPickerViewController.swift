@@ -21,13 +21,13 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+         
         callSearchAPI()
-        myRefreshControl.addTarget(self, action: #selector(callSearchAPI), for: .valueChanged)
-        tableView.refreshControl = myRefreshControl
+        
        }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
         super.viewDidAppear(animated)
         
         let query = PFQuery(className: "getFoodFromAPI")
@@ -41,7 +41,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    @objc func callSearchAPI(){
+    func callSearchAPI(){
     let checkedIngredients = PFQuery(className: "checkIngredients")
 
     var userChecked: [String] = []
@@ -74,7 +74,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             urlComponents.path = "/search"
             urlComponents.queryItems = [
                 URLQueryItem(name: "q", value: searchTerm),
-                URLQueryItem(name: "api_key", value: "4c43411d817856122333fbeba420b7141241fdd65894d3144add0c4e1467bcdd")
+                URLQueryItem(name: "api_key", value: "8904e8f40f3070f69b5e5b20139add92b3d79e684d3b78a36b129d29a1f934eb")
             ]
             guard let someString = urlComponents.url?.absoluteString else { return  }
         
@@ -109,11 +109,16 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                                  print("Error: \(String(describing: error?.localizedDescription))")
                              }
                          }
+                         
+                         self.viewDidAppear(true)
 
                      }
                      
                      
-                 }
+                    }
+                     
+                     
+                 
             }
             task.resume()
          
@@ -123,8 +128,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
-    self.tableView.reloadData()
-    self.myRefreshControl.endRefreshing()
 
 
 }
