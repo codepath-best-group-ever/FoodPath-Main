@@ -14,7 +14,7 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     var ingredidents = [PFObject]()
     
     
-    @IBOutlet weak var cameraButton: UIButton!
+    //@IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var nextButton: UIButton!
@@ -83,9 +83,8 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     }
 
-
     
-    
+    // redirect to image recognition view controller **DEPRECATED
     @IBAction func didPressButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -93,26 +92,26 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
         picker.allowsEditing = true
         self.present(picker, animated: true)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+
         picker.dismiss(animated: true, completion: nil)
         picture = info[.editedImage] as? UIImage
-        
+
         performSegue(withIdentifier: "goToImageRecognition", sender: nil)
-        
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToImageRecognition" {
             let nextDestination = segue.destination as! ImageRecognitionViewController
-            nextDestination.cameraPicture = picture
+//            nextDestination.cameraPicture = picture
         }
-    
+
     }
     
 }
