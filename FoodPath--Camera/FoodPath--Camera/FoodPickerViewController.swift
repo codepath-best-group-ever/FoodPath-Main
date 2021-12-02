@@ -33,6 +33,23 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                 return
             }
             else{
+                var text: String = ""
+                let checked = PFQuery(className: "chooseIngredients")
+                checked.whereKey("isChecked", equalTo: true)
+                checked.findObjectsInBackground { objects, error in
+                    if error == nil{
+                        if let checkedIngredients = objects{
+                            for everyTrue in checkedIngredients{
+                                text.append(everyTrue["ingredientName"] as! String)
+                                text.append("\n")
+                            }
+                        }
+                        self.selectedIngredientsLabel.text = text
+                    }
+                    
+                    
+                }
+        
                 self.callSearchAPI()
             }
          }
@@ -53,10 +70,10 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         })
     }
     
-    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return possibleFoods.count
- }
+    }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeOptionCell") as! RecipeOptionCell
          
@@ -156,13 +173,24 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-   
     
     
     // Back button pushed, go back to stream
     @IBAction func goBack(_ sender: Any) {
-        
-        // Change every value back to false
+        clearData()
+        performSegue(withIdentifier: "fromFoodPickerToStream" , sender: nil)
+    }
+    
+    
+    
+    // View was closed, delete table data
+    override func viewDidDisappear(_ animated: Bool) {
+        clearData()
+    }
+    
+  
+    // Resets checked ingredients and clear table
+    func clearData(){
         let currentChecked = PFQuery(className: "chooseIngredients")
         currentChecked.whereKey("isChecked", equalTo: true )
         currentChecked.findObjectsInBackground { (objects, error) -> Void in
@@ -176,8 +204,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-
-        // Delete recommended foods in database
         let foodRecipes = PFQuery(className: "getFoodFromAPI")
         foodRecipes.findObjectsInBackground { (objects, error) -> Void  in
             if error == nil{
@@ -189,7 +215,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         self.tableView.reloadData()
-        performSegue(withIdentifier: "fromFoodPickerToStream" , sender: nil)
     }
- 
+    
+    
 }
