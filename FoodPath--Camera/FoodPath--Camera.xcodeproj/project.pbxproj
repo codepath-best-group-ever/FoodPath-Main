@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04F4E9A7DB60A5B76854CE3F /* Pods_FoodPath__Camera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24C462C30D3A3194E8D4764 /* Pods_FoodPath__Camera.framework */; };
+		4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */; };
+		4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */; };
+		4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4410AE0727593B47008F57F8 /* launchScreen.gif */; };
 		447E5D0627570C5E00EDCD7D /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */; };
 		447E5D0B27570CFD00EDCD7D /* foodPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */; };
 		447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */; };
@@ -53,6 +56,9 @@
 		160FE7F62DEDA5E9561702C0 /* Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodPath--Camera-FoodPath--CameraUITests/Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2C801E93D585368B585668EB /* Pods-FoodPath--CameraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--CameraTests.release.xcconfig"; path = "Target Support Files/Pods-FoodPath--CameraTests/Pods-FoodPath--CameraTests.release.xcconfig"; sourceTree = "<group>"; };
 		3B341FE8A36835613A54DB16 /* Pods_FoodPath__CameraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPath__CameraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
+		4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGIFViewController.swift; sourceTree = "<group>"; };
+		4410AE0727593B47008F57F8 /* launchScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = launchScreen.gif; path = Assets/launchScreen.gif; sourceTree = SOURCE_ROOT; };
 		447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodPredictor.swift; sourceTree = "<group>"; };
 		447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertiesOrientation.swift; sourceTree = "<group>"; };
@@ -119,6 +125,14 @@
 				3B341FE8A36835613A54DB16 /* Pods_FoodPath__CameraTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4410AE0627593B29008F57F8 /* gifAssets */ = {
+			isa = PBXGroup;
+			children = (
+				4410AE0727593B47008F57F8 /* launchScreen.gif */,
+			);
+			path = gifAssets;
 			sourceTree = "<group>";
 		};
 		447E5D0727570C8F00EDCD7D /* foodRecognizerML */ = {
@@ -194,6 +208,7 @@
 		E5C417042749EB7600F6CAC4 /* FoodPath--Camera */ = {
 			isa = PBXGroup;
 			children = (
+				4410AE0627593B29008F57F8 /* gifAssets */,
 				447E5D0727570C8F00EDCD7D /* foodRecognizerML */,
 				E5C417052749EB7600F6CAC4 /* AppDelegate.swift */,
 				E5C417072749EB7600F6CAC4 /* SceneDelegate.swift */,
@@ -208,6 +223,8 @@
 				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
 				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
 				447E5D132757156500EDCD7D /* galleryPicker.swift */,
+				4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */,
+				4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */,
 			);
 			path = "FoodPath--Camera";
 			sourceTree = "<group>";
@@ -341,6 +358,7 @@
 				E5C417122749EB7600F6CAC4 /* LaunchScreen.storyboard in Resources */,
 				E5C4170F2749EB7600F6CAC4 /* Assets.xcassets in Resources */,
 				E5C4170D2749EB7600F6CAC4 /* Main.storyboard in Resources */,
+				4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,8 +490,10 @@
 				447E5D1027570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift in Sources */,
 				447E5D142757156500EDCD7D /* galleryPicker.swift in Sources */,
 				E5C417062749EB7600F6CAC4 /* AppDelegate.swift in Sources */,
+				4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */,
 				E5C417082749EB7600F6CAC4 /* SceneDelegate.swift in Sources */,
 				447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */,
+				4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */,
 				E5D046CF27534F3B00E93C94 /* IngredientsCell.swift in Sources */,
 				E5C417382749ECDC00F6CAC4 /* ImageRecognitionViewController.swift in Sources */,
 				447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */,

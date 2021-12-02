@@ -3,6 +3,11 @@
 
 target 'FoodPath--Camera' do
   # Comment the next line if you don't want to use dynamic frameworks
+  source 'https://github.com/CocoaPods/Specs.git'
+  use_frameworks!
+  # pod to load gif on launch screen
+  pod 'SwiftyGif'
+
   use_frameworks!
 
   # Pods for FoodPath--Camera

@@ -4,19 +4,23 @@ PODS:
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
     - Bolts/Tasks (= 1.9.1)
+  - SwiftyGif (5.4.1)
 
 DEPENDENCIES:
   - Parse
+  - SwiftyGif
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Bolts
     - Parse
+    - SwiftyGif
 
 SPEC CHECKSUMS:
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
+  SwiftyGif: 6895c887f5551618a3c5dd3ecb512419105bacca
 
-PODFILE CHECKSUM: 3478561c6b43b45d7473bf318c66dc7220f34e8b
+PODFILE CHECKSUM: bfccf74a717985875223535a3514e1665c83d28e
 
 COCOAPODS: 1.11.2

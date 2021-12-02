@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-FoodPath--Camera-FoodPath--CameraUITests/Pods-FoodPath--Camera-FoodPath--CameraUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework
