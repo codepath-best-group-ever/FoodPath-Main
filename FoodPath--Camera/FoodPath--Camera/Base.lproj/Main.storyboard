@@ -58,26 +58,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-gr-ia7">
-                                <rect key="frame" x="0.0" y="164" width="414" height="616"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-gr-ia7">
+                                <rect key="frame" x="-2" y="164" width="416" height="605"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsCell" id="Scg-T5-zJ1" customClass="IngredientsCell" customModule="FoodPath__Camera" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="416" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Scg-T5-zJ1" id="ePc-Ne-l0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="416" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-lS-VDg">
-                                                    <rect key="frame" x="142" y="11" width="130" height="21"/>
+                                                    <rect key="frame" x="142" y="11" width="132" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="mFo-AN-caJ">
-                                                    <rect key="frame" x="30" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="30" y="6.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="didCheckIngredient:" destination="BYZ-38-t0r" eventType="valueChanged" id="f7o-d4-Pry"/>
                                                     </connections>
@@ -112,8 +111,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bkn-wn-loh">
-                                <rect key="frame" x="0.0" y="779" width="414" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="-2" y="777" width="416" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
@@ -126,7 +125,11 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hV3-fr-H5K" secondAttribute="trailing" constant="20" id="0GR-Nx-ovM"/>
                             <constraint firstItem="hV3-fr-H5K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="48e-gJ-wwc"/>
+                            <constraint firstItem="UY5-gr-ia7" firstAttribute="leading" secondItem="Bkn-wn-loh" secondAttribute="leading" id="97x-km-tPD"/>
                             <constraint firstItem="hV3-fr-H5K" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JB1-kp-qMn"/>
+                            <constraint firstItem="UY5-gr-ia7" firstAttribute="top" secondItem="k2J-ve-Ra0" secondAttribute="bottom" constant="14.5" id="O6g-Ke-pVr"/>
+                            <constraint firstItem="UY5-gr-ia7" firstAttribute="trailing" secondItem="Bkn-wn-loh" secondAttribute="trailing" id="OHM-DZ-n9N"/>
+                            <constraint firstItem="Bkn-wn-loh" firstAttribute="top" secondItem="UY5-gr-ia7" secondAttribute="bottom" constant="8" id="P3E-gL-5Ko"/>
                             <constraint firstItem="k2J-ve-Ra0" firstAttribute="top" secondItem="hV3-fr-H5K" secondAttribute="bottom" constant="54" id="dIk-2a-apx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k2J-ve-Ra0" secondAttribute="trailing" constant="5" id="q48-Xu-YqD"/>
                             <constraint firstItem="k2J-ve-Ra0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="z9Z-qR-P4p"/>
@@ -215,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ez-Sf-hHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.7101449275362" y="67.633928571428569"/>
+            <point key="canvasLocation" x="794" y="-654"/>
         </scene>
         <!--Image Recognition View Controller-->
         <scene sceneID="7ht-RF-DZr">
@@ -326,11 +329,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6D-uX-8En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44.927536231884062" y="945.53571428571422"/>
+            <point key="canvasLocation" x="-694" y="795"/>
+        </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="sxX-zH-hEk">
+            <objects>
+                <hostingController id="gc0-Tv-Zh3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voj-gY-78S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="796"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T4U-pW-q4g"/>
+        <segue reference="jgu-sk-rwA"/>
+        <segue reference="3lw-VP-gYw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -11,6 +11,7 @@
 		4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */; };
 		4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */; };
 		4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4410AE0727593B47008F57F8 /* launchScreen.gif */; };
+		4410AE0A275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */; };
 		447E5D0627570C5E00EDCD7D /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */; };
 		447E5D0B27570CFD00EDCD7D /* foodPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */; };
 		447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */; };
@@ -59,6 +60,7 @@
 		4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
 		4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGIFViewController.swift; sourceTree = "<group>"; };
 		4410AE0727593B47008F57F8 /* launchScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = launchScreen.gif; path = Assets/launchScreen.gif; sourceTree = SOURCE_ROOT; };
+		4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageRecogFoodPickerSwiftUIView.swift; sourceTree = "<group>"; };
 		447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodPredictor.swift; sourceTree = "<group>"; };
 		447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertiesOrientation.swift; sourceTree = "<group>"; };
@@ -135,6 +137,38 @@
 			path = gifAssets;
 			sourceTree = "<group>";
 		};
+		4410AE0B2759516C008F57F8 /* imageRecognitionScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */,
+				4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */,
+				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
+				447E5D132757156500EDCD7D /* galleryPicker.swift */,
+				447E5D0727570C8F00EDCD7D /* foodRecognizerML */,
+			);
+			path = imageRecognitionScreen;
+			sourceTree = "<group>";
+		};
+		4410AE0C27595190008F57F8 /* launchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				4410AE0627593B29008F57F8 /* gifAssets */,
+				4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */,
+				4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */,
+			);
+			path = launchScreen;
+			sourceTree = "<group>";
+		};
+		4410AE0D275951B8008F57F8 /* streamScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E5D046D02753586500E93C94 /* FoodPickerViewController.swift */,
+				E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */,
+				E5C417352749EC7200F6CAC4 /* StreamViewController.swift */,
+			);
+			path = streamScreen;
+			sourceTree = "<group>";
+		};
 		447E5D0727570C8F00EDCD7D /* foodRecognizerML */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,23 +242,16 @@
 		E5C417042749EB7600F6CAC4 /* FoodPath--Camera */ = {
 			isa = PBXGroup;
 			children = (
-				4410AE0627593B29008F57F8 /* gifAssets */,
-				447E5D0727570C8F00EDCD7D /* foodRecognizerML */,
+				4410AE0D275951B8008F57F8 /* streamScreen */,
+				4410AE0C27595190008F57F8 /* launchScreen */,
+				4410AE0B2759516C008F57F8 /* imageRecognitionScreen */,
 				E5C417052749EB7600F6CAC4 /* AppDelegate.swift */,
 				E5C417072749EB7600F6CAC4 /* SceneDelegate.swift */,
 				E5C4170B2749EB7600F6CAC4 /* Main.storyboard */,
 				E5C4170E2749EB7600F6CAC4 /* Assets.xcassets */,
 				E5C417102749EB7600F6CAC4 /* LaunchScreen.storyboard */,
 				E5C417132749EB7600F6CAC4 /* Info.plist */,
-				E5C417352749EC7200F6CAC4 /* StreamViewController.swift */,
-				E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */,
-				E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */,
-				E5D046D02753586500E93C94 /* FoodPickerViewController.swift */,
 				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
-				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
-				447E5D132757156500EDCD7D /* galleryPicker.swift */,
-				4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */,
-				4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */,
 			);
 			path = "FoodPath--Camera";
 			sourceTree = "<group>";
@@ -501,6 +528,7 @@
 				E5C417362749EC7200F6CAC4 /* StreamViewController.swift in Sources */,
 				E51E594D27543F1C007C9C13 /* RecipeOptionCell.swift in Sources */,
 				447E5D0B27570CFD00EDCD7D /* foodPredictor.swift in Sources */,
+				4410AE0A275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

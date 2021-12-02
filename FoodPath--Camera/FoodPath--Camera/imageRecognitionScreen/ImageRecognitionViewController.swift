@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ImageRecognitionViewController: UIViewController {
-
+class ImageRecognitionViewController: UIViewController, ObservableObject{
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var foodDishesLabel: UILabel!
     
@@ -98,6 +98,7 @@ extension ImageRecognitionViewController{
     /// - Parameter predictions: An array of predictions.
     /// - Tag: imagePredictionHandler
     private func imagePredictionHandler(_ predictions: [ImagePredictor.Prediction]?) {
+        
         guard let predictions = predictions else {
             updateFoodDish("No predictions. (Check console log.)")
             return
