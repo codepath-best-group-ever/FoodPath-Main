@@ -57,27 +57,21 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
 
    //**HERE IS THE CODE FOR CHANGING THE BOOLEAN VALUE**
     @IBAction func didCheckIngredient(_ sender: Any) {
-        let indexPath = tableView.indexPathForSelectedRow
-
-        let cell = tableView.cellForRow(at: indexPath!) as! IngredientsCell
-
-        let ingredientCheck = PFObject(className: "checkIngredients")
- 
-
+        
         if ((sender as AnyObject).isOn == true) {
-            ingredientCheck["isChecked"] = true
-            ingredientCheck["ingredientId"] = 1
-            ingredientCheck["ingredientName"] = cell.ingredientNameLabel.text
+            let indexPath = tableView.indexPathForSelectedRow
+            let cell = tableView.cellForRow(at: indexPath!) as! IngredientsCell
 
-
-            ingredientCheck.saveInBackground { (success, error) in
-                if success{
-                    self.dismiss(animated: true, completion: nil)
-                    print("Saved!")
-                }
-                else{
-                    print("Error: \(String(describing: error?.localizedDescription))")
-                }
+            let ingredientCheck = PFQuery(className: "chooseIngredients")
+            ingredientCheck.whereKey("ingredientName", equalTo: cell.ingredientNameLabel.text)
+            ingredientCheck.getFirstObjectInBackground { object, error in
+                if error == nil {
+                        if let ingredent = object {
+                            ingredent["isChecked"] = true
+                            ingredent.saveInBackground()
+                            print("Ingredient saved!")
+                        }
+                    }
             }
         }
 
