@@ -6,9 +6,20 @@
 //
 
 import UIKit
+import SwiftUI
 
 class ImageRecognitionViewController: UIViewController, ObservableObject{
-    
+    var imageIsNotNull = false
+    var foodList = ""
+    @IBAction func confirmImage(_ sender: Any) {
+        if (imageIsNotNull == true){
+            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+                let destinationVC = segue.destination as! FoodPickerFromImageViewController
+                destinationVC.foodList = foodList
+            }
+        }
+    }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var foodDishesLabel: UILabel!
     
@@ -54,6 +65,7 @@ extension ImageRecognitionViewController {
     func updateImage(_ image: UIImage) {
         DispatchQueue.main.async {
             self.imageView.image = image
+            self.imageIsNotNull = true
         }
     }
     
@@ -99,12 +111,12 @@ extension ImageRecognitionViewController{
     /// - Tag: imagePredictionHandler
     private func imagePredictionHandler(_ predictions: [ImagePredictor.Prediction]?) {
         
-        guard let predictions = predictions else {
+        guard let foodList = predictions else {
             updateFoodDish("No predictions. (Check console log.)")
             return
         }
 
-        let formattedPredictions = formatPredictions(predictions)
+        let formattedPredictions = formatPredictions(foodList)
 
         let predictionString = formattedPredictions.joined(separator: "\n")
         updateFoodDish(predictionString)

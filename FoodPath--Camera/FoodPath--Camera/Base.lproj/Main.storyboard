@@ -293,6 +293,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-b9-Kil">
+                                <rect key="frame" x="170" y="521" width="76" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Confirm"/>
+                                <connections>
+                                    <action selector="confirmImage:" destination="cc5-hy-KDb" eventType="touchUpInside" id="RS4-to-iEc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vtw-Z4-6Kz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -325,24 +334,32 @@
                         <outlet property="foodDishesLabel" destination="pLW-ue-dOW" id="jCM-Be-M0x"/>
                         <outlet property="galleryUIButton" destination="wKZ-n3-4oZ" id="cie-ex-7TI"/>
                         <outlet property="imageView" destination="G7B-A0-hZG" id="8q5-jt-LR1"/>
+                        <segue destination="wSH-qT-va3" kind="show" identifier="showFood" id="hPh-zd-qpr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6D-uX-8En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-694" y="795"/>
+            <point key="canvasLocation" x="-694" y="787"/>
         </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="sxX-zH-hEk">
+        <!--Food Picker From Image View Controller-->
+        <scene sceneID="2yg-t9-z7I">
             <objects>
-                <hostingController id="gc0-Tv-Zh3" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="voj-gY-78S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="wSH-qT-va3" customClass="FoodPickerFromImageViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ux3-Sb-9OQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jJQ-az-uUu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z3V-Cg-TcV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hxe-XS-ciU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="74" y="796"/>
+            <point key="canvasLocation" x="101" y="795"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jgu-sk-rwA"/>
-        <segue reference="3lw-VP-gYw"/>
+        <segue reference="XtR-PY-yib"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -12,6 +12,8 @@
 		4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */; };
 		4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4410AE0727593B47008F57F8 /* launchScreen.gif */; };
 		4410AE0A275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */; };
+		4410AE0F27597018008F57F8 /* FoodPickerFromImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */; };
+		4424073D2759783F00C9E2CD /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4424073C2759783F00C9E2CD /* Food101.mlmodel */; };
 		447E5D0627570C5E00EDCD7D /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */; };
 		447E5D0B27570CFD00EDCD7D /* foodPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */; };
 		447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */; };
@@ -61,6 +63,8 @@
 		4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGIFViewController.swift; sourceTree = "<group>"; };
 		4410AE0727593B47008F57F8 /* launchScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = launchScreen.gif; path = Assets/launchScreen.gif; sourceTree = SOURCE_ROOT; };
 		4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageRecogFoodPickerSwiftUIView.swift; sourceTree = "<group>"; };
+		4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPickerFromImageViewController.swift; sourceTree = "<group>"; };
+		4424073C2759783F00C9E2CD /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Food101.mlmodel; path = "FoodPath--Camera/foodRecognizerML/Models/Food101.mlmodel"; sourceTree = SOURCE_ROOT; };
 		447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		447E5D0A27570CFD00EDCD7D /* foodPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodPredictor.swift; sourceTree = "<group>"; };
 		447E5D0D27570D9000EDCD7D /* CGImagePropertiesOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertiesOrientation.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
 				447E5D132757156500EDCD7D /* galleryPicker.swift */,
 				447E5D0727570C8F00EDCD7D /* foodRecognizerML */,
+				4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */,
 			);
 			path = imageRecognitionScreen;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				447E5D0527570C5E00EDCD7D /* MobileNet.mlmodel */,
+				4424073C2759783F00C9E2CD /* Food101.mlmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,12 +521,14 @@
 			files = (
 				447E5D0627570C5E00EDCD7D /* MobileNet.mlmodel in Sources */,
 				447E5D1027570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift in Sources */,
+				4410AE0F27597018008F57F8 /* FoodPickerFromImageViewController.swift in Sources */,
 				447E5D142757156500EDCD7D /* galleryPicker.swift in Sources */,
 				E5C417062749EB7600F6CAC4 /* AppDelegate.swift in Sources */,
 				4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */,
 				E5C417082749EB7600F6CAC4 /* SceneDelegate.swift in Sources */,
 				447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */,
 				4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */,
+				4424073D2759783F00C9E2CD /* Food101.mlmodel in Sources */,
 				E5D046CF27534F3B00E93C94 /* IngredientsCell.swift in Sources */,
 				E5C417382749ECDC00F6CAC4 /* ImageRecognitionViewController.swift in Sources */,
 				447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */,
