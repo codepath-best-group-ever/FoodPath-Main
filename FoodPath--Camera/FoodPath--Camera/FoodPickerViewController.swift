@@ -133,7 +133,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                          let returnedFoods = self.foodSuggestions
                          
                          
-                         if(self.foodSuggestions != nil){
+                         if(dataDictionary["recipes_results"] != nil){
                              // Add each result to database
                              for (index,foodItem) in returnedFoods.enumerated(){
                                  let foodFromAPI = PFObject(className: "getFoodFromAPI")
