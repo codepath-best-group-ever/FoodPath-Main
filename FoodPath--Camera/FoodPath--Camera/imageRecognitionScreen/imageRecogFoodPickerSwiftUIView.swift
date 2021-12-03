@@ -7,18 +7,30 @@
 import UIKit
 import SwiftUI
 
+// import data from parent vc
+class FoodModel: ObservableObject{
+    @Published var foodList: [String]
+    init(foodList: [String]){
+        self.foodList = foodList
+    }
+}
 
-struct imageRecogFoodPickerSwiftUIView: View {
-    
+
+
+struct imageRecogFoodPickerSwiftUIView:
+    View {
+    var foodList: [String] = []
+    @ObservedObject var model: FoodModel
     @State private var selection: String?
-    let foodChoices = [
-        "choco cake",
-        "chicken",
-        "breakfast sandwich"
-    ]
+
+//    let foodChoices = [
+//        "choco cake",
+//        "chicken",
+//        "breakfast sandwich"
+//    ]
     var body: some View {
         NavigationView{
-            List(foodChoices, id: \.self, selection: $selection){ food in
+            List(model.foodList, id: \.self, selection: $selection){ food in
                 Text(food)
             }
             .navigationTitle("Recognized Food Dishes")
@@ -29,11 +41,11 @@ struct imageRecogFoodPickerSwiftUIView: View {
     }
 }
 
-struct imageRecogFoodPickerSwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        imageRecogFoodPickerSwiftUIView()
-    }
-}
+//struct imageRecogFoodPickerSwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        imageRecogFoodPickerSwiftUIView()
+//    }
+//}
 
 //struct imageRecogFoodPickerSwiftUIView: UIViewRepresentable {
 //    typealias UIVIewType =

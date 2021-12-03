@@ -10,36 +10,38 @@ import SwiftUI
 
 class FoodPickerFromImageViewController: UIViewController {
     var foodList: [String] = []
-    
-
+    private var model = FoodModel(foodList:[])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.model.foodList = ["choco", "banana", "breakfast sandwich"]
+        self.model.foodList = foodList
         // adding a swift UI view
-        
-        let swiftUIView = imageRecogFoodPickerSwiftUIView()
-        let hostingController = UIHostingController(rootView: swiftUIView)
-        
+        addSwiftUIView()
+    }
+    
+    func addSwiftUIView() {
+        let swiftUIView = imageRecogFoodPickerSwiftUIView(model: model)
+        let controller = UIHostingController(rootView: swiftUIView)
+    
         // add as a child of the current view controller
-        addChild(hostingController)
-
+        addChild(controller)
+        
         // add the swiftui view to the view controller view hierarchy
-        view.addSubview(hostingController.view)
-
-        // setup the constraints to update the swiftui view boundaries
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        let constraints = [
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.leftAnchor.constraint(equalTo: view.leftAnchor),
-            view.bottomAnchor.constraint(equalTo: hostingController.view.bottomAnchor),
-            view.rightAnchor.constraint(equalTo: hostingController.view.rightAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-
+        view.addSubview(controller.view)
+        
         // Notify the hosting controller that it has been moved to the current view controller.
-        hostingController.didMove(toParent: self)
+        controller.didMove(toParent: self)
+        
+        // setup the constraints to update the swiftui view boundaries
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            controller.view.widthAnchor.constraint(equalTo: view.widthAnchor),
+            controller.view.heightAnchor.constraint(equalTo: view.heightAnchor),
+            controller.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            controller.view.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
     

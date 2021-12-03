@@ -19,11 +19,10 @@ class ImageRecognitionViewController: UIViewController, ObservableObject{
 //            }
         }
     }
-    func showFood(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showFood" {
-            
             let nextDestination = segue.destination as! FoodPickerFromImageViewController
-            nextDestination.foodList = self.foodList
+            nextDestination.foodList = foodList
         }
 
     }
