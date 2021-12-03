@@ -121,7 +121,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                 guard let someString = urlComponents.url?.absoluteString else { return  }
             
                 let url = URL(string: someString)!
-                let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+                let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 0)
                 let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
                 let task = session.dataTask(with: request) { (data, response, error) in
                      if let error = error {
