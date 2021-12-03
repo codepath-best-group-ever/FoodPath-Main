@@ -15,13 +15,27 @@ class FoodModel: ObservableObject{
     }
 }
 
+struct GradientBackgroundStyle: ButtonStyle {
+ 
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+            .foregroundColor(.white)
+            .background(LinearGradient(gradient: Gradient(colors: [Color("DarkGreen"), Color("LightGreen")]), startPoint: .leading, endPoint: .trailing))
+            .cornerRadius(40)
+            .padding(.horizontal, 20)
+    }
+}
 
 
 struct imageRecogFoodPickerSwiftUIView:
     View {
     var foodList: [String] = []
+    
     @ObservedObject var model: FoodModel
     @State private var selection: String?
+
 
 //    let foodChoices = [
 //        "choco cake",
@@ -34,19 +48,15 @@ struct imageRecogFoodPickerSwiftUIView:
                 Text(food)
             }
             .navigationTitle("Recognized Food Dishes")
-            .toolbar{
-                EditButton()
+            .toolbar {
+                    ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
+                        Button("Select Food Dish", action: {
+                            print("Button pressed")
+                        })
+                    }
             }
         }
+
     }
 }
 
-//struct imageRecogFoodPickerSwiftUIView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        imageRecogFoodPickerSwiftUIView()
-//    }
-//}
-
-//struct imageRecogFoodPickerSwiftUIView: UIViewRepresentable {
-//    typealias UIVIewType =
-//}
