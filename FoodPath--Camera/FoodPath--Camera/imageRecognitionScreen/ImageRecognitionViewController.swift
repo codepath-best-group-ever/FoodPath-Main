@@ -10,15 +10,22 @@ import SwiftUI
 
 class ImageRecognitionViewController: UIViewController, ObservableObject{
     var imageIsNotNull = false
-    var foodList = ""
+    var foodList: [String] = []
     @IBAction func confirmImage(_ sender: Any) {
         if (imageIsNotNull == true){
-            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-                let destinationVC = segue.destination as! FoodPickerFromImageViewController
-                destinationVC.foodList = foodList
-            }
+            performSegue(withIdentifier: "showFood", sender: nil)
+//            for food in self.foodList{
+//                print(food) // testing
+//            }
         }
+    }
+    func showFood(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFood" {
+            
+            let nextDestination = segue.destination as! FoodPickerFromImageViewController
+            nextDestination.foodList = self.foodList
+        }
+
     }
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var foodDishesLabel: UILabel!
@@ -115,10 +122,14 @@ extension ImageRecognitionViewController{
             updateFoodDish("No predictions. (Check console log.)")
             return
         }
-
+        // add to self.foodList value
         let formattedPredictions = formatPredictions(foodList)
+        for food in formattedPredictions{
+            self.foodList.append(food)
+        }
 
         let predictionString = formattedPredictions.joined(separator: "\n")
+        //print(predictionString) // testing
         updateFoodDish(predictionString)
     }
 

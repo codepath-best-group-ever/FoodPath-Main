@@ -144,12 +144,12 @@
 		4410AE0B2759516C008F57F8 /* imageRecognitionScreen */ = {
 			isa = PBXGroup;
 			children = (
+				4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */,
 				E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */,
 				4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */,
 				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
 				447E5D132757156500EDCD7D /* galleryPicker.swift */,
 				447E5D0727570C8F00EDCD7D /* foodRecognizerML */,
-				4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */,
 			);
 			path = imageRecognitionScreen;
 			sourceTree = "<group>";
