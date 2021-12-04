@@ -27,15 +27,28 @@ struct GradientBackgroundStyle: ButtonStyle {
             .padding(.horizontal, 20)
     }
 }
-
-
-struct imageRecogFoodPickerSwiftUIView:
-    View {
-    var foodList: [String] = []
-    
+struct imageRecogFoodPickerSwiftUIView: View {
     @ObservedObject var model: FoodModel
-    @State private var selection: String?
+    var foodList: [String] = []
+    @State var selectedFood: String? = nil
 
+    var body: some View {
+        VStack{
+            List(model.foodList, id: \.self){ food in
+                SelectionCell(Food: food, selectedFood: self.$selectedFood)
+            }
+            //Text("\(selectedFood)")
+        }
+    }
+}
+
+struct SelectionCell: View {
+    let Food: String
+    @Binding var selectedFood: String?
+
+    // to implement custom edit button
+    @State var isEditing = false
+    @State var toConfirm = 0
 
 //    let foodChoices = [
 //        "choco cake",
@@ -43,20 +56,18 @@ struct imageRecogFoodPickerSwiftUIView:
 //        "breakfast sandwich"
 //    ]
     var body: some View {
-        NavigationView{
-            List(model.foodList, id: \.self, selection: $selection){ food in
-                Text(food)
+        HStack {
+            Text(Food)
+            Spacer()
+            if Food == selectedFood {
+                Image(systemName: "checkmark")
+                    .foregroundColor(.accentColor)
             }
-            .navigationTitle("Recognized Food Dishes")
-            .toolbar {
-                    ToolbarItem(placement: ToolbarItemPlacement.navigationBarTrailing) {
-                        Button("Select Food Dish", action: {
-                            print("Button pressed")
-                        })
-                    }
-            }
+        } .onTapGesture {
+            self.selectedFood = self.Food
+            print("\(selectedFood)")
         }
-
     }
 }
+
 
