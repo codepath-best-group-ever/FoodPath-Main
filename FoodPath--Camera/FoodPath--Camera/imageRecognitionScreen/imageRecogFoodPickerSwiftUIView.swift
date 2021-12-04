@@ -38,7 +38,13 @@ struct imageRecogFoodPickerSwiftUIView: View {
                 SelectionCell(Food: food, selectedFood: self.$selectedFood)
             }
             //Text("\(selectedFood)")
+            Button(action: {
+                print("\(selectedFood ?? "")")
+            }) {
+                Text("Confirm")
+            }
         }
+        
     }
 }
 
