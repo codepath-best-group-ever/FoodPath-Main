@@ -295,7 +295,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="&lt; Back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="aws-SC-bGD"/>
+                                    <segue destination="ZFM-Et-jKc" kind="show" id="NSk-qd-TXt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -310,7 +310,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aws-SC-bGD"/>
+        <segue reference="NSk-qd-TXt"/>
+        <segue reference="XtR-PY-yib"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

@@ -133,7 +133,6 @@ class GetReceipeViewController: UICollectionViewController,UITableViewDelegate, 
                     URLQueryItem(name: "api_key", value: "8904e8f40f3070f69b5e5b20139add92b3d79e684d3b78a36b129d29a1f934eb")
                     URLQueryItem(name: "api_key", value: "8904e8f40f3070f69b5e5b20139add92b3d79e684d3b78a36b129d29a1f934eb")
                     
-                    URLQueryItem(name: "link", value: "linkforWebsite")
                     
                 ]
                 guard let someString = urlComponents.url?.absoluteString else { return  }
@@ -156,7 +155,7 @@ class GetReceipeViewController: UICollectionViewController,UITableViewDelegate, 
                              for (index,websiteTitle) in returnedFoods.enumerated(){
                                  let RecipeFromAPI = PFObject(className: "getRecipesFromAPI")
                                  let possibleRecipe = foodItem["title"] as! String
-                                 let linkRecipe = receipeItem["title"] as! String
+                                 let linkRecipe = receipeItem["link"] as! String
                                  RecipeFromAPI["websiteURL"] = linkRecipe
                                  RecipeFromAPI["websiteTitle"] = possibleRecipe
                                  RecipeFromAPI["receipeId"] = index + 1
