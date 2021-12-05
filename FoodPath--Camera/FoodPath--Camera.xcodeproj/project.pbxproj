@@ -20,6 +20,7 @@
 		447E5D1027570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D0F27570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift */; };
 		447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D112757151A00EDCD7D /* cameraPicker.swift */; };
 		447E5D142757156500EDCD7D /* galleryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D132757156500EDCD7D /* galleryPicker.swift */; };
+		44D757DF275C51400040FEA1 /* iconGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44D757DE275C51400040FEA1 /* iconGIF.gif */; };
 		4F51F3B43C4EE7326544469C /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27B2EA771142358ED5CB5B3 /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework */; };
 		8843CF5C34013ADF0993C2D4 /* Pods_FoodPath__CameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B341FE8A36835613A54DB16 /* Pods_FoodPath__CameraTests.framework */; };
 		E51E594D27543F1C007C9C13 /* RecipeOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */; };
@@ -71,6 +72,7 @@
 		447E5D0F27570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VNClassificationObservationConfidenceString.swift; sourceTree = "<group>"; };
 		447E5D112757151A00EDCD7D /* cameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraPicker.swift; sourceTree = "<group>"; };
 		447E5D132757156500EDCD7D /* galleryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = galleryPicker.swift; sourceTree = "<group>"; };
+		44D757DE275C51400040FEA1 /* iconGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = iconGIF.gif; sourceTree = "<group>"; };
 		82B2A8D7923C981C48F315B0 /* Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodPath--Camera-FoodPath--CameraUITests/Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A940DF7CC485D6B0937FC6AD /* Pods-FoodPath--CameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--CameraTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodPath--CameraTests/Pods-FoodPath--CameraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C27B2EA771142358ED5CB5B3 /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPath__Camera_FoodPath__CameraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 		4410AE0627593B29008F57F8 /* gifAssets */ = {
 			isa = PBXGroup;
 			children = (
+				44D757DE275C51400040FEA1 /* iconGIF.gif */,
 				4410AE0727593B47008F57F8 /* launchScreen.gif */,
 			);
 			path = gifAssets;
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C417122749EB7600F6CAC4 /* LaunchScreen.storyboard in Resources */,
+				44D757DF275C51400040FEA1 /* iconGIF.gif in Resources */,
 				E5C4170F2749EB7600F6CAC4 /* Assets.xcassets in Resources */,
 				E5C4170D2749EB7600F6CAC4 /* Main.storyboard in Resources */,
 				4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */,

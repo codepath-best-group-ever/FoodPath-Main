@@ -27,7 +27,7 @@ class LogoAnimationViewController: UIViewController {
         
         // Load gif
         do{
-            let gif = try UIImage(gifName: "launchScreen")
+            let gif = try UIImage(gifName: "iconGIF")
             self.logoAnimationImageView.setGifImage(gif, loopCount: 1)
             
         }catch{

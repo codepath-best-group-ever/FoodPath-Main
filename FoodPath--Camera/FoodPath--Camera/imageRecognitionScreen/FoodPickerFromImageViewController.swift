@@ -21,6 +21,20 @@ class FoodPickerFromImageViewController: UIViewController {
         addSwiftUIView()
     }
     
+    // back button
+    @IBSegueAction func swiftUIAction(_ coder: NSCoder) -> UIViewController?{
+        let controller = UIHostingController(coder: coder, rootView: imageRecogFoodPickerSwiftUIView(model:model){ [weak self] in
+            self?.dismiss(animated: true)
+        })
+//        let host = UIHostingController(rootView: imageRecogFoodPickerSwiftUIView(model: model) { [weak self] in
+//            self?.navigationController?.popViewController(animated: true)
+//        })
+//        self.navigationController?.navigationBar.isHidden = true
+//        self.navigationController?.pushViewController(host, animated: true)
+        return controller
+    }
+
+    
     func addSwiftUIView() {
         let swiftUIView = imageRecogFoodPickerSwiftUIView(model: model)
         let controller = UIHostingController(rootView: swiftUIView)

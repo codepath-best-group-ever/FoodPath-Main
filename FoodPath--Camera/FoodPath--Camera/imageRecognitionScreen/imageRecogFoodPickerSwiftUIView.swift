@@ -31,20 +31,34 @@ struct imageRecogFoodPickerSwiftUIView: View {
     @ObservedObject var model: FoodModel
     var foodList: [String] = []
     @State var selectedFood: String? = nil
-
+    
+    // back button
+    var completion: () -> () = {}
+    
     var body: some View {
-        VStack{
-            List(model.foodList, id: \.self){ food in
-                SelectionCell(Food: food, selectedFood: self.$selectedFood)
+        NavigationView{
+            VStack{
+                List(model.foodList, id: \.self){ food in
+                    SelectionCell(Food: food, selectedFood: self.$selectedFood)
+                }
+                Button(action: {
+                    print("\(selectedFood ?? "")")
+                }) {
+                    Text("Confirm")
+                }
             }
-            //Text("\(selectedFood)")
-            Button(action: {
-                print("\(selectedFood ?? "")")
-            }) {
-                Text("Confirm")
+            .toolbar{
+                ToolbarItem(placement: ToolbarItemPlacement.navigation){
+                    Button(action: completion){
+                        HStack{
+                            Label("Back", systemImage: "chevron.left")
+                            Text("Back")
+                        }
+                        
+                    }
+                }
             }
         }
-        
     }
 }
 

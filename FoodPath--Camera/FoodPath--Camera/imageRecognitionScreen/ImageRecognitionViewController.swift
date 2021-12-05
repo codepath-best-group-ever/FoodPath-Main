@@ -26,6 +26,7 @@ class ImageRecognitionViewController: UIViewController, ObservableObject{
         }
 
     }
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var foodDishesLabel: UILabel!
     

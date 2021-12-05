@@ -16,11 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launchScreenBg" translatesAutoresizingMaskIntoConstraints="NO" id="1qB-RJ-R1e">
+                                <rect key="frame" x="0.0" y="0.0" width="434" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Op-1q-Mlo">
                                 <rect key="frame" x="87" y="328" width="240" height="240"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="H7J-sT-N5n"/>
-                                    <constraint firstAttribute="height" constant="240" id="SOc-4J-8GH"/>
+                                    <constraint firstAttribute="height" constant="240" id="H7J-sT-N5n"/>
                                     <constraint firstAttribute="width" constant="240" id="Vxf-vF-5ng"/>
                                 </constraints>
                             </imageView>
@@ -39,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOx-m3-cD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-883" y="83"/>
+            <point key="canvasLocation" x="-884.05797101449286" y="82.366071428571431"/>
         </scene>
         <!--Stream View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -59,24 +62,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UY5-gr-ia7">
-                                <rect key="frame" x="-2" y="164" width="416" height="605"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="605"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsCell" id="Scg-T5-zJ1" customClass="IngredientsCell" customModule="FoodPath__Camera" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="416" height="43"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Scg-T5-zJ1" id="ePc-Ne-l0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="416" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-lS-VDg">
-                                                    <rect key="frame" x="142" y="11" width="132" height="21"/>
+                                                    <rect key="frame" x="142" y="11" width="130" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="mFo-AN-caJ">
-                                                    <rect key="frame" x="30" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="30" y="6.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="didCheckIngredient:" destination="BYZ-38-t0r" eventType="valueChanged" id="f7o-d4-Pry"/>
                                                     </connections>
@@ -111,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bkn-wn-loh">
-                                <rect key="frame" x="-2" y="777" width="416" height="58"/>
+                                <rect key="frame" x="0.0" y="777" width="414" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
@@ -352,16 +355,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="z3V-Cg-TcV"/>
+                    <connections>
+                        <segue destination="Xen-qh-afB" kind="unwind" identifier="backToVC" unwindAction="unwindToImageRecogVCWithUnwindSegue:" id="8dG-m4-ei5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxe-XS-ciU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Xen-qh-afB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="161" y="787"/>
+            <point key="canvasLocation" x="210" y="803"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="XtR-PY-yib"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="launchScreenBg" width="1024" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
