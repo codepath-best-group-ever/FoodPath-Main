@@ -20,11 +20,21 @@ class ImageRecognitionViewController: UIViewController, ObservableObject{
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showFood" {
-            let nextDestination = segue.destination as! FoodPickerFromImageViewController
+            let nextDestination = segue.destination as! FoodPickerFromImageRecogViewController
             nextDestination.foodList = foodList
         }
 
+    }
+    
+    // unwind segue and clear foodlist
+    @IBAction func unwindWithSegue(_ segue: UIStoryboardSegue) {
+        foodList.removeAll()
+        self.imageView.isHidden = true
+        self.foodDishesLabel.isHidden = true
+        self.displayTitle.isHidden = true
+        self.firstRun = true
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -80,10 +90,11 @@ extension ImageRecognitionViewController {
         DispatchQueue.main.async {
             self.foodDishesLabel.text = predictions
         }
-        // hide prediction labels if photo hasn't been selected/taken
+        // show prediction labels if photo has been taken / chosen
         if firstRun {
             DispatchQueue.main.async {
                 self.firstRun = false
+                self.imageView.isHidden = false
                 self.foodDishesLabel.isHidden = false
                 self.displayTitle.isHidden = false
             }

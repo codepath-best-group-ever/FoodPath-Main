@@ -21,6 +21,11 @@
 		447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D112757151A00EDCD7D /* cameraPicker.swift */; };
 		447E5D142757156500EDCD7D /* galleryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447E5D132757156500EDCD7D /* galleryPicker.swift */; };
 		44D757DF275C51400040FEA1 /* iconGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44D757DE275C51400040FEA1 /* iconGIF.gif */; };
+		44D757E1275D96C30040FEA1 /* FoodPickerFromImageRecogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D757E0275D96C30040FEA1 /* FoodPickerFromImageRecogViewController.swift */; };
+		44D757E4275D9C3D0040FEA1 /* foodDishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D757E2275D9C3D0040FEA1 /* foodDishTableViewCell.swift */; };
+		44D757E5275D9C3D0040FEA1 /* foodDishTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44D757E3275D9C3D0040FEA1 /* foodDishTableViewCell.xib */; };
+		44D757E7275DA8B40040FEA1 /* customGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D757E6275DA8B40040FEA1 /* customGradientButton.swift */; };
+		44D757EA275DB15A0040FEA1 /* recipesScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D757E9275DB15A0040FEA1 /* recipesScreenViewController.swift */; };
 		4F51F3B43C4EE7326544469C /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27B2EA771142358ED5CB5B3 /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework */; };
 		8843CF5C34013ADF0993C2D4 /* Pods_FoodPath__CameraTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B341FE8A36835613A54DB16 /* Pods_FoodPath__CameraTests.framework */; };
 		E51E594D27543F1C007C9C13 /* RecipeOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */; };
@@ -73,6 +78,11 @@
 		447E5D112757151A00EDCD7D /* cameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cameraPicker.swift; sourceTree = "<group>"; };
 		447E5D132757156500EDCD7D /* galleryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = galleryPicker.swift; sourceTree = "<group>"; };
 		44D757DE275C51400040FEA1 /* iconGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = iconGIF.gif; sourceTree = "<group>"; };
+		44D757E0275D96C30040FEA1 /* FoodPickerFromImageRecogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPickerFromImageRecogViewController.swift; sourceTree = "<group>"; };
+		44D757E2275D9C3D0040FEA1 /* foodDishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodDishTableViewCell.swift; sourceTree = "<group>"; };
+		44D757E3275D9C3D0040FEA1 /* foodDishTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = foodDishTableViewCell.xib; sourceTree = "<group>"; };
+		44D757E6275DA8B40040FEA1 /* customGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customGradientButton.swift; sourceTree = "<group>"; };
+		44D757E9275DB15A0040FEA1 /* recipesScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesScreenViewController.swift; sourceTree = "<group>"; };
 		82B2A8D7923C981C48F315B0 /* Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig"; path = "Target Support Files/Pods-FoodPath--Camera-FoodPath--CameraUITests/Pods-FoodPath--Camera-FoodPath--CameraUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A940DF7CC485D6B0937FC6AD /* Pods-FoodPath--CameraTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--CameraTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodPath--CameraTests/Pods-FoodPath--CameraTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C27B2EA771142358ED5CB5B3 /* Pods_FoodPath__Camera_FoodPath__CameraUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPath__Camera_FoodPath__CameraUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +158,10 @@
 			isa = PBXGroup;
 			children = (
 				4410AE0E27597018008F57F8 /* FoodPickerFromImageViewController.swift */,
+				44D757E0275D96C30040FEA1 /* FoodPickerFromImageRecogViewController.swift */,
+				44D757E2275D9C3D0040FEA1 /* foodDishTableViewCell.swift */,
+				44D757E3275D9C3D0040FEA1 /* foodDishTableViewCell.xib */,
+				44D757E6275DA8B40040FEA1 /* customGradientButton.swift */,
 				E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */,
 				4410AE09275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift */,
 				447E5D112757151A00EDCD7D /* cameraPicker.swift */,
@@ -213,6 +227,14 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		44D757E8275DB1380040FEA1 /* recipesScreen */ = {
+			isa = PBXGroup;
+			children = (
+				44D757E9275DB15A0040FEA1 /* recipesScreenViewController.swift */,
+			);
+			path = recipesScreen;
+			sourceTree = "<group>";
+		};
 		D5FAB5DAC000D8099D20F433 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +273,7 @@
 		E5C417042749EB7600F6CAC4 /* FoodPath--Camera */ = {
 			isa = PBXGroup;
 			children = (
+				44D757E8275DB1380040FEA1 /* recipesScreen */,
 				4410AE0D275951B8008F57F8 /* streamScreen */,
 				4410AE0C27595190008F57F8 /* launchScreen */,
 				4410AE0B2759516C008F57F8 /* imageRecognitionScreen */,
@@ -394,6 +417,7 @@
 				E5C417122749EB7600F6CAC4 /* LaunchScreen.storyboard in Resources */,
 				44D757DF275C51400040FEA1 /* iconGIF.gif in Resources */,
 				E5C4170F2749EB7600F6CAC4 /* Assets.xcassets in Resources */,
+				44D757E5275D9C3D0040FEA1 /* foodDishTableViewCell.xib in Resources */,
 				E5C4170D2749EB7600F6CAC4 /* Main.storyboard in Resources */,
 				4410AE0827593B47008F57F8 /* launchScreen.gif in Resources */,
 			);
@@ -531,14 +555,18 @@
 				4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */,
 				E5C417082749EB7600F6CAC4 /* SceneDelegate.swift in Sources */,
 				447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */,
+				44D757EA275DB15A0040FEA1 /* recipesScreenViewController.swift in Sources */,
 				4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */,
+				44D757E4275D9C3D0040FEA1 /* foodDishTableViewCell.swift in Sources */,
 				4424073D2759783F00C9E2CD /* Food101.mlmodel in Sources */,
 				E5D046CF27534F3B00E93C94 /* IngredientsCell.swift in Sources */,
 				E5C417382749ECDC00F6CAC4 /* ImageRecognitionViewController.swift in Sources */,
 				447E5D0E27570D9000EDCD7D /* CGImagePropertiesOrientation.swift in Sources */,
 				E5D046D12753586500E93C94 /* FoodPickerViewController.swift in Sources */,
+				44D757E7275DA8B40040FEA1 /* customGradientButton.swift in Sources */,
 				E5C417362749EC7200F6CAC4 /* StreamViewController.swift in Sources */,
 				E51E594D27543F1C007C9C13 /* RecipeOptionCell.swift in Sources */,
+				44D757E1275D96C30040FEA1 /* FoodPickerFromImageRecogViewController.swift in Sources */,
 				447E5D0B27570CFD00EDCD7D /* foodPredictor.swift in Sources */,
 				4410AE0A275941CB008F57F8 /* imageRecogFoodPickerSwiftUIView.swift in Sources */,
 			);
