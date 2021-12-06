@@ -2,7 +2,7 @@
 //  FoodPickerFromImageViewController.swift
 //  FoodPath--Camera
 //
-//  Created by Eugene Tye on 12/2/21.
+//  Created by Elaine Chan on 12/2/21.
 //
 
 import UIKit

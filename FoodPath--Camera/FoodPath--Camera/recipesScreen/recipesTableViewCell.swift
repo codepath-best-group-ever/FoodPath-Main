@@ -1,5 +1,5 @@
 //
-//  foodDishTableViewCell.swift
+//  recipesTableViewCell.swift
 //  FoodPath--Camera
 //
 //  Created by Elaine Chan on 12/5/21.
@@ -7,12 +7,10 @@
 
 import UIKit
 
-class foodDishTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var myImageView: UIImageView!
-    
+class recipesTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var Label: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +21,5 @@ class foodDishTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

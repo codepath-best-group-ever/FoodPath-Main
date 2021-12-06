@@ -56,7 +56,7 @@ class ImagePredictor {
         /// The image classifier's confidence as a percentage string.
         ///
         /// The prediction string doesn't include the % symbol in the string.
-        let confidencePercentage: String
+        //let confidencePercentage: String
     }
 
     /// The function signature the caller must provide as a completion handler.
@@ -142,8 +142,7 @@ class ImagePredictor {
         // Create a prediction array from the observations.
         predictions = observations.map { observation in
             // Convert each observation into an `ImagePredictor.Prediction` instance.
-            Prediction(classification: observation.identifier,
-                       confidencePercentage: observation.confidencePercentageString)
+            Prediction(classification: observation.identifier)
         }
     }
 }

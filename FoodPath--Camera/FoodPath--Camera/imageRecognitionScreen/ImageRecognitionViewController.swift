@@ -157,7 +157,7 @@ extension ImageRecognitionViewController{
                 name = String(name.prefix(upTo: firstComma))
             }
 
-            return "\(name) - \(prediction.confidencePercentage)%"
+            return "\(name)"
         }
 
         return topPredictions

@@ -2,7 +2,7 @@
 //  customGradientButton.swift
 //  FoodPath--Camera
 //
-//  Created by Eugene Tye on 12/5/21.
+//  Created by Elaine Chan on 12/5/21.
 //
 
 import UIKit
