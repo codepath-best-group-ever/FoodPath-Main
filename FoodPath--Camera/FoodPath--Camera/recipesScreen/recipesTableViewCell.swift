@@ -9,7 +9,7 @@ import UIKit
 
 class recipesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var recipeSourceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -12,6 +12,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
     // to determine which screen the data was passed from
     var screenName: String = ""
     
+    @IBOutlet weak var foodLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var food: String = ""
     var foodSuggestions = [[String:Any]]()
@@ -28,6 +29,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.foodLabel.text = food
         searchAPI()
         
         // to fix
@@ -37,6 +39,11 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         tableView.dataSource = self
 
         // Do any additional setup after loading the view.
+    }
+    
+    // reload table
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     func searchAPI(){
@@ -75,6 +82,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
                          self.recipeSuggestion.append(recipe)
                          // to do: append both link and source; table view will only display source
                      }
+                     self.viewDidAppear(true)
                  }
              }
         }
@@ -90,7 +98,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipesTableViewCell", for: indexPath) as! recipesTableViewCell
         print("\(recipeSuggestion[indexPath.row])")
-        cell.Label.text = recipeSuggestion[indexPath.row]
+        cell.recipeSourceLabel.text = recipeSuggestion[indexPath.row]
 
         return cell
     }

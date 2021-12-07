@@ -176,6 +176,7 @@
 		4410AE0D275951B8008F57F8 /* streamScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
 				E5D046D02753586500E93C94 /* FoodPickerViewController.swift */,
 				E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */,
 				E5C417352749EC7200F6CAC4 /* StreamViewController.swift */,
@@ -296,7 +297,6 @@
 				E5C4170E2749EB7600F6CAC4 /* Assets.xcassets */,
 				E5C417102749EB7600F6CAC4 /* LaunchScreen.storyboard */,
 				E5C417132749EB7600F6CAC4 /* Info.plist */,
-				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
 			);
 			path = "FoodPath--Camera";
 			sourceTree = "<group>";
