@@ -14,10 +14,12 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var selectedIngredientsLabel: UILabel!
+    @IBOutlet weak var nextButton: UIButton!
+    
     
     var possibleFoods = [PFObject]()
     var foodSuggestions = [[String:Any]]()
-    let myRefreshControl = UIRefreshControl()
+    var selectedRecipe: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +87,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
      }
     
     
+    
     // Set up URL Query and call search API
     func callSearchAPI(){
         let checkedIngredients = PFQuery(className: "chooseIngredients")
@@ -121,7 +124,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                 guard let someString = urlComponents.url?.absoluteString else { return  }
             
                 let url = URL(string: someString)!
-                let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 0)
+                let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
                 let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
                 let task = session.dataTask(with: request) { (data, response, error) in
                      if let error = error {
@@ -215,6 +218,50 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         self.tableView.reloadData()
+    }
+    
+    
+    
+    // enable user to check recipe
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Unselect the row.
+        tableView.deselectRow(at: indexPath, animated: false)
+
+        // make checkmark appear
+        let cell = tableView.cellForRow(at: indexPath) as! RecipeOptionCell
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+                    if cell.accessoryType == .checkmark {
+                        cell.accessoryType = .none
+                    } else {
+                        cell.accessoryType = .checkmark
+                    }
+                }
+        if cell.accessoryType == .checkmark{
+            selectedRecipe = cell.recipeChoiceLabel.text as! String
+        }
+        else if cell.accessoryType == .none{
+            selectedRecipe = ""
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRecipeScreen" {
+            let nextDestination = segue.destination as! TEMPViewController
+            
+            if selectedRecipe.isEmpty == false{
+            nextDestination.selectedRecipe = selectedRecipe
+            }
+            else{
+                nextDestination.selectedRecipe = "Plese go back and select a recipe"
+            }
+        }
+    }
+    
+    
+    @IBAction func goToRecipeScreen(_ sender: Any) {
+        performSegue(withIdentifier: "goToRecipeScreen", sender: nil)
+        
     }
     
     

@@ -35,18 +35,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="mFo-AN-caJ">
-                                                    <rect key="frame" x="34" y="6" width="49" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="didCheckIngredient:" destination="BYZ-38-t0r" eventType="valueChanged" id="f7o-d4-Pry"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientNameLabel" destination="APY-lS-VDg" id="5vK-Dh-ayt"/>
-                                            <outlet property="switchButton" destination="mFo-AN-caJ" id="XyK-Pk-URk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -159,6 +151,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
+                                <connections>
+                                    <action selector="goToRecipeScreen:" destination="ZFM-Et-jKc" eventType="touchUpInside" id="aHi-Pq-ror"/>
+                                    <segue destination="CuX-Gq-nQl" kind="show" identifier="goToRecipeScreen" id="SSN-zN-bOz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lS-sa-pDD">
                                 <rect key="frame" x="61" y="113" width="298" height="80"/>
@@ -180,6 +176,7 @@
                     <navigationItem key="navigationItem" id="uCk-yO-7Et"/>
                     <connections>
                         <outlet property="backButton" destination="WM4-II-oEO" id="9ZA-ya-nOj"/>
+                        <outlet property="nextButton" destination="ZX3-IQ-WXm" id="bMn-oY-4wu"/>
                         <outlet property="selectedIngredientsLabel" destination="7lS-sa-pDD" id="wEh-BY-Tj1"/>
                         <outlet property="statusLabel" destination="gcF-FW-c83" id="bz4-sO-f6t"/>
                         <outlet property="tableView" destination="qFU-E7-JJl" id="9lR-rO-1I3"/>
@@ -189,6 +186,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ez-Sf-hHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1086.9565217391305" y="60.9375"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0Bl-sB-eZf">
+            <objects>
+                <viewController id="CuX-Gq-nQl" customClass="TEMPViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CpZ-aQ-wll">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REPLACE THIS SCREEN WITH RECIPE PICKER" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5Q-My-SqI">
+                                <rect key="frame" x="7" y="125" width="407" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The selected recipe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28A-r7-ye4">
+                                <rect key="frame" x="135" y="293" width="151" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xdz-Kg-Avh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JIL-zP-gtu"/>
+                    <connections>
+                        <outlet property="selectedRecipeLabel" destination="28A-r7-ye4" id="Jqd-og-mOB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zIa-bG-qei" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2147.826086956522" y="60.9375"/>
         </scene>
         <!--Image Recognition View Controller-->
         <scene sceneID="7ht-RF-DZr">

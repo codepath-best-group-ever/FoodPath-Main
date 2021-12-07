@@ -38,7 +38,7 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
         })
     }
     
-    
+    // tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredidents.count
     }
@@ -55,13 +55,23 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
 
-   //**HERE IS THE CODE FOR CHANGING THE BOOLEAN VALUE**
-    @IBAction func didCheckIngredient(_ sender: Any) {
-        
-        if ((sender as AnyObject).isOn == true) {
-            let indexPath = tableView.indexPathForSelectedRow
-            let cell = tableView.cellForRow(at: indexPath!) as! IngredientsCell
+    // store checked ingreidents in database when checked
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Unselect the row.
+        tableView.deselectRow(at: indexPath, animated: false)
 
+        // make checkmark appear
+        let cell = tableView.cellForRow(at: indexPath) as! IngredientsCell
+        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+                    if cell.accessoryType == .checkmark {
+                        cell.accessoryType = .none
+                    } else {
+                        cell.accessoryType = .checkmark
+                    }
+                }
+    
+        // ingredient is checked, change value to true
+        if cell.accessoryType == .checkmark{
             let ingredientCheck = PFQuery(className: "chooseIngredients")
             ingredientCheck.whereKey("ingredientName", equalTo: cell.ingredientNameLabel.text)
             ingredientCheck.getFirstObjectInBackground { object, error in
@@ -72,14 +82,29 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
                             print("Ingredient saved!")
                         }
                     }
-            }
+                }
         }
-
+        // ingredient unchecked, make false
+        else if cell.accessoryType == .none{
+            let ingredientCheck = PFQuery(className: "chooseIngredients")
+            ingredientCheck.whereKey("ingredientName", equalTo: cell.ingredientNameLabel.text)
+            ingredientCheck.getFirstObjectInBackground { object, error in
+                if error == nil {
+                        if let ingredent = object {
+                            ingredent["isChecked"] = false
+                            ingredent.saveInBackground()
+                            print("Ingredient unsaved!")
+                        }
+                    }
+                }
+        }
     }
 
 
     
     
+    
+    // camera functionality
     @IBAction func didPressButton(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
