@@ -1,2 +1,4 @@
 # Ignore Mac system files
 .DS_store
+# Ignore personal xcode settings
+xcuserstate/
