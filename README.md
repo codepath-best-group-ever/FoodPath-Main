@@ -21,6 +21,7 @@ Helps users recognize an unknown food dish through image recognition and by spec
 
 Here's a walkthrough of implemented user stories:
 
+<img src="https://user-images.githubusercontent.com/71743181/144953355-9da52108-46cd-4c21-8856-01b24590d42e.gif" width = 250 height = 500>
 <img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250 height=500>
 <img src="https://user-images.githubusercontent.com/43968366/143981252-d5ab8fe4-81f6-4fb6-9036-b0ef42fac17c.gif"
  width=250 height=500>
@@ -29,11 +30,12 @@ Here's a walkthrough of implemented user stories:
 ## Product Spec
 ### 1. User Stories (Required and Optional)
 **Required Must-have Stories**
+- [x] User can see a custom launch screen
 - [x] User can select from a predefined list of ingredients
 - [x] User can be recommended a food dish based off the image taken by user
 - [x] User can access camera to take a picture of their food
 - [x] User can be recommended a list of food dishes based off the user's selected ingredients
-- [ ] User can select the from a list of recommended food dishes
+- [x] User can select the from a list of recommended food dishes
 - [ ] User can select from a list of recommended recipes
 - [ ] User can be redirected to the website of the recipe
 
