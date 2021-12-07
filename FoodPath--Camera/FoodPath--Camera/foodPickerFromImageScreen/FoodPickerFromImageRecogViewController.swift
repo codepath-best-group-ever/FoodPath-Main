@@ -37,8 +37,10 @@ class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDeleg
         else if segue.identifier == "goToRecipes" {
             let nextDestination = segue.destination as! recipesScreenViewController
             nextDestination.food = foodList[selectedFood.row]
+            nextDestination.screenName = "image"
         }
     }
+    @IBAction func unwindToFoodPickerFromImageRecog(_ unwindSegue: UIStoryboardSegue) {}
     
     @IBOutlet weak var tableView: UITableView!
     

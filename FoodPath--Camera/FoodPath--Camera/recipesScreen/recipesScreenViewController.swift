@@ -9,12 +9,23 @@ import UIKit
 
 class recipesScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    // to determine which screen the data was passed from
+    var screenName: String = ""
+    
     @IBOutlet weak var tableView: UITableView!
     var food: String = ""
     var foodSuggestions = [[String:Any]]()
     var recipeSuggestion: [String] = []
     //var selectedRecipe = IndexPath = []
-
+    
+    // back button
+    
+    @IBAction func unwindSegueBackButton(_ sender: Any) {
+        if screenName == "image"{
+            performSegue(withIdentifier: "backToFoodPickerFromImageRecog", sender: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchAPI()

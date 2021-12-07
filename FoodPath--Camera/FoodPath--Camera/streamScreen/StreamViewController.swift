@@ -14,6 +14,9 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     var ingredidents = [PFObject]()
     
     
+    // back button
+    @IBAction func unwindToStream(_ unwindSegue: UIStoryboardSegue) {}
+    
     //@IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
