@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class recipesScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -54,16 +55,33 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
                     let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
     
                  self.foodSuggestions = dataDictionary["recipes_results"] as! [[String:Any]]
-                 //print("\(self.foodSuggestions)")
                  let returnedFoods = self.foodSuggestions
                  if(dataDictionary["recipes_results"] != nil){
                      // Add each result to database
-                     for (_,foodItem) in returnedFoods.enumerated(){
-                         let recipe = foodItem["link"] as! String
-                         print("\(recipe)")
-                         self.recipeSuggestion.append(recipe)
-                         // to do: append both link and source; table view will only display source
+                     for (index,foodItem) in returnedFoods.enumerated(){
+                         let recipeSource = foodItem["source"] as! String
+                         let recipeLink = foodItem["link"] as! String
+                         self.recipeSuggestion.append(recipeSource)
+                         
+                         let recipeDatabase = PFObject(className: "getRecipesFromAPI")
+                         recipeDatabase["recipeID"] = index + 1
+                         recipeDatabase["websiteTitle"] = recipeSource
+                         recipeDatabase["websiteURL"] = recipeLink
+                         recipeDatabase.saveInBackground { (success, error) in
+                              if success{
+                                  print("Recipe Saved!")
+                              }
+                              
+                              else{
+                                  print("Error: \(String(describing: error?.localizedDescription))")
+                            }
+                         }
+                     
                      }
+                     
+                 }
+                 else{
+                     print("error")
                  }
              }
         }

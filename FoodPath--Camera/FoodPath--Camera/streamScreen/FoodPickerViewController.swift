@@ -15,7 +15,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var possibleFoods = [PFObject]()
     var foodSuggestions = [[String:Any]]()
-    let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +22,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         
         callSearchAPI()
-        myRefreshControl.addTarget(self, action: #selector(callSearchAPI), for: .valueChanged)
-        tableView.refreshControl = myRefreshControl
        }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +71,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             urlComponents.path = "/search"
             urlComponents.queryItems = [
                 URLQueryItem(name: "q", value: searchTerm),
-                URLQueryItem(name: "api_key", value: "4c43411d817856122333fbeba420b7141241fdd65894d3144add0c4e1467bcdd")
+                URLQueryItem(name: "api_key", value: "8904e8f40f3070f69b5e5b20139add92b3d79e684d3b78a36b129d29a1f934eb")
             ]
             guard let someString = urlComponents.url?.absoluteString else { return  }
         
@@ -90,8 +87,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         
                      self.foodSuggestions = dataDictionary["recipes_results"] as! [[String:Any]]
                      let returnedFoods = self.foodSuggestions
-                     
-                     
                      
         
                       // Add each result to database
@@ -124,15 +119,11 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     self.tableView.reloadData()
-    self.myRefreshControl.endRefreshing()
 
 
 }
     
    
-    
-    
-
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return possibleFoods.count
