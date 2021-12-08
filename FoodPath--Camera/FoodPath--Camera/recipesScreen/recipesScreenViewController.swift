@@ -18,10 +18,12 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchAPI()
+       
         
-        // to fix
-        self.tableView.reloadData()
+        async{
+            await self.searchAPI()
+        }
+        
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -29,7 +31,9 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
     }
     
-    func searchAPI(){
+   
+    
+    func searchAPI() async{
         var searchTerm: String = "Recipes+for+"
         
         // add food dish to search term
@@ -42,7 +46,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         urlComponents.path = "/search"
         urlComponents.queryItems = [
                             URLQueryItem(name: "q", value: searchTerm),
-                            URLQueryItem(name: "api_key", value: "8904e8f40f3070f69b5e5b20139add92b3d79e684d3b78a36b129d29a1f934eb")
+                            URLQueryItem(name: "api_key", value: "1e9bf17c61d9a8fb0143e0e681861b6249f8a07b2d8fe2a2d1ae04ce08b5e2be")
                         ]
                         guard let someString = urlComponents.url?.absoluteString else { return  }
         let url = URL(string: someString)!
@@ -84,6 +88,9 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
                      print("error")
                  }
              }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
         task.resume()
     }
@@ -95,9 +102,9 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipesTableViewCell", for: indexPath) as! recipesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecipesTableViewCell", for: indexPath) as! RecipesTableViewCell
         print("\(recipeSuggestion[indexPath.row])")
-        cell.Label.text = recipeSuggestion[indexPath.row]
+        cell.Label?.text = recipeSuggestion[indexPath.row]
 
         return cell
     }

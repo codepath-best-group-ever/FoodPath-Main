@@ -1,16 +1,15 @@
 //
-//  recipesTableViewCell.swift
+//  RecipesTableViewCell.swift
 //  FoodPath--Camera
 //
-//  Created by Elaine Chan on 12/5/21.
+//  Created by Kim Chheu on 12/7/21.
 //
 
 import UIKit
 
-class recipesTableViewCell: UITableViewCell {
+class RecipesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var Label: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

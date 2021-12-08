@@ -461,7 +461,7 @@
                                     <constraint firstAttribute="width" secondItem="42Y-Zq-NMu" secondAttribute="height" multiplier="138:151" id="Qvm-Vl-BLg"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Q9T-f5-kbz" customClass="recipesTableViewCell" customModule="FoodPath__Camera" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecipesTableViewCell" id="Q9T-f5-kbz" customClass="RecipesTableViewCell" customModule="FoodPath__Camera" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q9T-f5-kbz" id="o72-hc-Lx9">
@@ -486,7 +486,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="Label" destination="tRI-pi-t0V" id="8lm-Kt-8a0"/>
+                                            <outlet property="Label" destination="tRI-pi-t0V" id="11t-0m-3lx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
