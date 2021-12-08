@@ -11,10 +11,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Bolts.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Parse-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Parse-Parse.xcscheme_^#shared#^_</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
@@ -25,12 +35,22 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Parse.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>Pods-FoodPath--Camera-FoodPath--CameraUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>Pods-FoodPath--Camera-FoodPath--CameraUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>Pods-FoodPath--Camera.xcscheme</key>
 		<dict>
@@ -39,12 +59,22 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Pods-FoodPath--Camera.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Pods-FoodPath--CameraTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>5</integer>
+		</dict>
+		<key>Pods-FoodPath--CameraTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>SwiftyGif.xcscheme</key>
 		<dict>

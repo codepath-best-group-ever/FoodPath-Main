@@ -5,6 +5,9 @@
 //  Created by Elaine Chan on 12/5/21.
 //
 
+// BRAIN DUMP TO DO:
+//  - add food data to parse 
+
 import UIKit
 
 class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{

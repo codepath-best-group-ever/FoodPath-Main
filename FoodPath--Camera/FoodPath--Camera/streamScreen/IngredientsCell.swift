@@ -10,7 +10,6 @@ import UIKit
 class IngredientsCell: UITableViewCell {
 
     @IBOutlet weak var ingredientNameLabel: UILabel!
-    @IBOutlet weak var switchButton: UISwitch!
     
     override func awakeFromNib() {
         super.awakeFromNib()

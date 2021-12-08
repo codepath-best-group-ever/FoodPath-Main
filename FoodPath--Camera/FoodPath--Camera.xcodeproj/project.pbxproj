@@ -64,6 +64,7 @@
 		160FE7F62DEDA5E9561702C0 /* Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig"; path = "Target Support Files/Pods-FoodPath--Camera-FoodPath--CameraUITests/Pods-FoodPath--Camera-FoodPath--CameraUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2C801E93D585368B585668EB /* Pods-FoodPath--CameraTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--CameraTests.release.xcconfig"; path = "Target Support Files/Pods-FoodPath--CameraTests/Pods-FoodPath--CameraTests.release.xcconfig"; sourceTree = "<group>"; };
 		3B341FE8A36835613A54DB16 /* Pods_FoodPath__CameraTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPath__CameraTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4405E10D276024B700183A42 /* TAKENOTE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TAKENOTE.md; sourceTree = "<group>"; };
 		4410AE0027592AC4008F57F8 /* LogoAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationViewController.swift; sourceTree = "<group>"; };
 		4410AE0427593A09008F57F8 /* SwiftyGIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGIFViewController.swift; sourceTree = "<group>"; };
 		4410AE0727593B47008F57F8 /* launchScreen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = launchScreen.gif; path = Assets/launchScreen.gif; sourceTree = SOURCE_ROOT; };
@@ -143,6 +144,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4405E10E2760299100183A42 /* foodPickerScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
+				E5D046D02753586500E93C94 /* FoodPickerViewController.swift */,
+			);
+			path = foodPickerScreen;
+			sourceTree = "<group>";
+		};
 		4410AE0627593B29008F57F8 /* gifAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +186,6 @@
 		4410AE0D275951B8008F57F8 /* streamScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E51E594C27543F1B007C9C13 /* RecipeOptionCell.swift */,
-				E5D046D02753586500E93C94 /* FoodPickerViewController.swift */,
 				E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */,
 				E5C417352749EC7200F6CAC4 /* StreamViewController.swift */,
 			);
@@ -285,6 +293,7 @@
 		E5C417042749EB7600F6CAC4 /* FoodPath--Camera */ = {
 			isa = PBXGroup;
 			children = (
+				4405E10E2760299100183A42 /* foodPickerScreen */,
 				4477D928275F4954004C7F44 /* customElementAsset */,
 				4477D927275F4900004C7F44 /* foodPickerFromImageScreen */,
 				44D757E8275DB1380040FEA1 /* recipesScreen */,
@@ -297,6 +306,7 @@
 				E5C4170E2749EB7600F6CAC4 /* Assets.xcassets */,
 				E5C417102749EB7600F6CAC4 /* LaunchScreen.storyboard */,
 				E5C417132749EB7600F6CAC4 /* Info.plist */,
+				4405E10D276024B700183A42 /* TAKENOTE.md */,
 			);
 			path = "FoodPath--Camera";
 			sourceTree = "<group>";

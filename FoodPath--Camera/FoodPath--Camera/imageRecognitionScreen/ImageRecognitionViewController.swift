@@ -29,7 +29,7 @@ class ImageRecognitionViewController: UIViewController, ObservableObject{
     }
     
     // unwind segue and clear foodlist
-    @IBAction func unwindToImageRecog(_ segue: UIStoryboardSegue) {
+    @IBAction func unwindFromRecipeScreen(_ segue: UIStoryboardSegue) {
         foodList.removeAll()
         self.imageView.isHidden = true
         self.foodDishesLabel.isHidden = true

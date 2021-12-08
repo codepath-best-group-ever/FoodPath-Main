@@ -72,45 +72,35 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-lS-VDg">
-                                                    <rect key="frame" x="142" y="11" width="130" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-lS-VDg">
+                                                    <rect key="frame" x="20" y="11" width="126.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" preferredStyle="sliding" translatesAutoresizingMaskIntoConstraints="NO" id="mFo-AN-caJ">
-                                                    <rect key="frame" x="30" y="6" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="didCheckIngredient:" destination="BYZ-38-t0r" eventType="valueChanged" id="f7o-d4-Pry"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="APY-lS-VDg" firstAttribute="top" secondItem="ePc-Ne-l0g" secondAttribute="topMargin" id="0qt-2C-5nN"/>
-                                                <constraint firstItem="APY-lS-VDg" firstAttribute="leading" secondItem="mFo-AN-caJ" secondAttribute="trailing" constant="63" id="Nrn-TW-1FC"/>
-                                                <constraint firstItem="APY-lS-VDg" firstAttribute="centerX" secondItem="ePc-Ne-l0g" secondAttribute="centerX" id="VqA-3A-i6S"/>
-                                                <constraint firstItem="mFo-AN-caJ" firstAttribute="leading" secondItem="ePc-Ne-l0g" secondAttribute="leading" constant="30" id="eEB-uz-SkZ"/>
+                                                <constraint firstItem="APY-lS-VDg" firstAttribute="leading" secondItem="ePc-Ne-l0g" secondAttribute="leadingMargin" id="ex4-2f-CxP"/>
                                                 <constraint firstItem="APY-lS-VDg" firstAttribute="centerY" secondItem="ePc-Ne-l0g" secondAttribute="centerY" id="fYA-Bz-pNL"/>
-                                                <constraint firstItem="APY-lS-VDg" firstAttribute="centerY" secondItem="mFo-AN-caJ" secondAttribute="centerY" id="pI0-ke-Ueh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="ingredientNameLabel" destination="APY-lS-VDg" id="5vK-Dh-ayt"/>
-                                            <outlet property="switchButton" destination="mFo-AN-caJ" id="XyK-Pk-URk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hV3-fr-H5K">
-                                <rect key="frame" x="319" y="44" width="75" height="31"/>
+                                <rect key="frame" x="303" y="44" width="91" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="1Vp-j6-uMc"/>
                                     <constraint firstAttribute="height" constant="31" id="AXN-tQ-MUh"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Camera"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Use photo"/>
                                 <connections>
-                                    <segue destination="cc5-hy-KDb" kind="show" id="H4P-dD-rn5"/>
+                                    <segue destination="cc5-hy-KDb" kind="show" identifier="goToImageRecogScreen" id="H4P-dD-rn5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Bkn-wn-loh">
@@ -119,7 +109,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
-                                    <segue destination="ZFM-Et-jKc" kind="show" id="jgu-sk-rwA"/>
+                                    <action selector="goToFoodPickerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJT-ZE-4Lk"/>
+                                    <segue destination="ZFM-Et-jKc" kind="show" identifier="goToFoodPicker" id="jgu-sk-rwA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,34 +142,26 @@
         <!--Food Picker View Controller-->
         <scene sceneID="a0I-sn-kU0">
             <objects>
-                <viewController id="ZFM-Et-jKc" customClass="FoodPickerViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ZFM-Et-jKc" customClass="FoodPickerViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5es-RH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0wI-Yw-RkF">
-                                <rect key="frame" x="-2" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="-2" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="LNz-oG-Yub">
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="WM4-II-oEO">
                                             <connections>
-                                                <segue destination="BYZ-38-t0r" kind="show" id="3lw-VP-gYw"/>
+                                                <segue destination="oia-9z-fda" kind="unwind" identifier="backToStream" unwindAction="unwindToStream:" id="5U1-0I-sPA"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You've Selected:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30x-3k-UZn">
-                                <rect key="frame" x="144" y="78" width="127" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-E7-JJl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qFU-E7-JJl">
                                 <rect key="frame" x="0.0" y="330" width="421" height="436"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecipeOptionCell" rowHeight="45" id="NIC-VO-xzf" customClass="RecipeOptionCell" customModule="FoodPath__Camera" customModuleProvider="target">
@@ -188,14 +171,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="421" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recipe Choice" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-8t-UMi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Choice" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9R2-8t-UMi">
                                                     <rect key="frame" x="20" y="11" width="381" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9R2-8t-UMi" firstAttribute="trailing" secondItem="uWg-qN-937" secondAttribute="trailingMargin" id="1rs-Va-r1c"/>
+                                                <constraint firstItem="9R2-8t-UMi" firstAttribute="leading" secondItem="uWg-qN-937" secondAttribute="leadingMargin" id="DqU-c7-E0n"/>
+                                                <constraint firstItem="9R2-8t-UMi" firstAttribute="bottom" secondItem="uWg-qN-937" secondAttribute="bottomMargin" id="EUq-tX-a1D"/>
+                                                <constraint firstItem="9R2-8t-UMi" firstAttribute="top" secondItem="uWg-qN-937" secondAttribute="topMargin" id="odp-Ey-gem"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="recipeChoiceLabel" destination="9R2-8t-UMi" id="HvM-tY-ifs"/>
@@ -203,9 +191,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recommendations Based On What You've Selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-FW-c83">
-                                <rect key="frame" x="11" y="291" width="392" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please wait while we search for recipes..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-FW-c83">
+                                <rect key="frame" x="52" y="291" width="310" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="M5e-Z9-k1J">
+                                <rect key="frame" x="-2" y="804" width="414" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Next"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDt-Sa-OQ1" userLabel="Selected Ingredients Label">
+                                <rect key="frame" x="50" y="140" width="310" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="310" id="Ret-fb-YYe"/>
+                                    <constraint firstAttribute="height" constant="143" id="Y8M-af-0AN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You've Selected:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30x-3k-UZn">
+                                <rect key="frame" x="144" y="111" width="127" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -213,15 +222,31 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0de-jv-hST"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="qFU-E7-JJl" secondAttribute="trailing" constant="-27" id="6Dp-TM-JMA"/>
+                            <constraint firstItem="gcF-FW-c83" firstAttribute="top" secondItem="uDt-Sa-OQ1" secondAttribute="bottom" constant="24" id="Cvn-2a-cgJ"/>
+                            <constraint firstItem="gcF-FW-c83" firstAttribute="leading" secondItem="uDt-Sa-OQ1" secondAttribute="leading" id="VX4-jc-Ft2"/>
+                            <constraint firstItem="uDt-Sa-OQ1" firstAttribute="centerX" secondItem="5es-RH-rdd" secondAttribute="centerX" id="YVD-Or-01H"/>
+                            <constraint firstItem="gcF-FW-c83" firstAttribute="centerX" secondItem="30x-3k-UZn" secondAttribute="centerX" id="bXC-7U-30r"/>
+                            <constraint firstItem="M5e-Z9-k1J" firstAttribute="top" secondItem="qFU-E7-JJl" secondAttribute="bottom" constant="38" id="beJ-Nz-mjE"/>
+                            <constraint firstItem="qFU-E7-JJl" firstAttribute="top" secondItem="gcF-FW-c83" secondAttribute="bottom" constant="18" id="oTj-q4-gZG"/>
+                            <constraint firstItem="qFU-E7-JJl" firstAttribute="leading" secondItem="5es-RH-rdd" secondAttribute="leading" id="ws0-tC-9LM"/>
+                            <constraint firstItem="gcF-FW-c83" firstAttribute="top" secondItem="5es-RH-rdd" secondAttribute="top" constant="291" id="xtT-4g-1jd"/>
+                            <constraint firstItem="uDt-Sa-OQ1" firstAttribute="top" secondItem="30x-3k-UZn" secondAttribute="bottom" constant="25" id="z6F-lI-OmY"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uCk-yO-7Et"/>
                     <connections>
+                        <outlet property="selectedIngredientsLabel" destination="uDt-Sa-OQ1" id="rQT-yU-rEq"/>
+                        <outlet property="statusLabel" destination="gcF-FW-c83" id="Vni-wg-kHt"/>
                         <outlet property="tableView" destination="qFU-E7-JJl" id="9lR-rO-1I3"/>
+                        <segue destination="hS5-2Z-XwQ" kind="show" identifier="goToRecipeScreen" id="alJ-N5-DOj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ez-Sf-hHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oia-9z-fda" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-654"/>
+            <point key="canvasLocation" x="1350.7246376811595" y="67.633928571428569"/>
         </scene>
         <!--Image Recognition View Controller-->
         <scene sceneID="7ht-RF-DZr">
@@ -343,7 +368,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6D-uX-8En" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="PS4-iU-taH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-617" y="796"/>
+            <point key="canvasLocation" x="45" y="796"/>
         </scene>
         <!--Food Picker From Image Recog View Controller-->
         <scene sceneID="Aek-MG-GiO">
@@ -409,7 +434,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyS-BT-uj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hSK-M5-XfM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="281" y="796"/>
+            <point key="canvasLocation" x="1313" y="796"/>
         </scene>
         <!--Recipes Screen View Controller-->
         <scene sceneID="xfM-5k-Jdf">
@@ -486,7 +511,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="Label" destination="tRI-pi-t0V" id="8lm-Kt-8a0"/>
+                                            <outlet property="recipeSourceLabel" destination="tRI-pi-t0V" id="KEa-BV-bPx"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -498,7 +523,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="Z6a-a6-hyG">
                                             <connections>
                                                 <action selector="unwindSegueBackButton:" destination="hS5-2Z-XwQ" id="sWn-yw-ecx"/>
-                                                <segue destination="skj-WE-cKe" kind="unwind" identifier="backToFoodPickerFromImageRecog" unwindAction="unwindToFoodPickerFromImageRecog:" id="9Rw-OP-1Rl"/>
+                                                <segue destination="skj-WE-cKe" kind="unwind" identifier="unwindFromRecipeScreen" unwindAction="unwindFromRecipeScreen:" id="ZVq-qp-meY"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -534,38 +559,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="lR8-TI-v3Y"/>
                     <connections>
-                        <outlet property="foodLabel" destination="gkx-cs-OO9" id="Nhn-5t-OGY"/>
-                        <outlet property="tableView" destination="42Y-Zq-NMu" id="iIV-Fe-B0Z"/>
+                        <outlet property="foodLabel" destination="gkx-cs-OO9" id="jba-eJ-1Bg"/>
+                        <outlet property="tableView" destination="42Y-Zq-NMu" id="Ir3-FM-Wtc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wrV-2E-YDT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="skj-WE-cKe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1534.7826086956522" y="519.64285714285711"/>
-        </scene>
-        <!--Food Picker From Image View Controller-->
-        <scene sceneID="2yg-t9-z7I">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="wSH-qT-va3" customClass="FoodPickerFromImageViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ux3-Sb-9OQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="jJQ-az-uUu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="z3V-Cg-TcV"/>
-                    <connections>
-                        <segue destination="Xen-qh-afB" kind="unwind" identifier="backToVC" unwindAction="unwindToImageRecogVCWithUnwindSegue:" id="8dG-m4-ei5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hxe-XS-ciU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Xen-qh-afB" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="235" y="1473"/>
+            <point key="canvasLocation" x="2522" y="394"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T4U-pW-q4g"/>
+        <segue reference="alJ-N5-DOj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="foodCover" width="500" height="500"/>
