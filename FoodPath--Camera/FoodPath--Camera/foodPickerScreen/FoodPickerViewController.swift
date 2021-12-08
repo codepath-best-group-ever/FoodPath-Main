@@ -20,7 +20,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var nextButton: UIButton!
     
     
-    var possibleFoods = [PFObject]()
+    var possibleFoods: [String] = []
     var foodSuggestions = [[String:Any]]()
     var selectedRecipe: String = ""
     
@@ -54,8 +54,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                     
                 }
-        
-                self.callSearchAPI()
             }
          }
        }
@@ -65,14 +63,11 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.reloadData()
         super.viewDidAppear(animated)
         
-        let query = PFQuery(className: "getFoodFromAPI")
-        query.findObjectsInBackground(block: { (foods, error) in
-            if foods != nil{
-                self.possibleFoods = foods!
-                self.tableView.reloadData()
+        Task.init{
+            do{
+                await self.callSearchAPI()
             }
-            
-        })
+        }
     }
     
  
@@ -81,18 +76,15 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     }
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeOptionCell") as! RecipeOptionCell
-         
-         let ingredient = possibleFoods[indexPath.row]
-         cell.recipeChoiceLabel.text = ingredient["foodName"] as! String
+
+         cell.recipeChoiceLabel.text = possibleFoods[indexPath.row]
          
          return cell
      
      }
-    
-    
-    
+
     // Set up URL Query and call search API
-    func callSearchAPI(){
+    func callSearchAPI() async{
         let checkedIngredients = PFQuery(className: "chooseIngredients")
         var userChecked: [String] = []
         var searchTerm: String = "Recipes+for+"
@@ -141,32 +133,17 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                          
                          if(dataDictionary["recipes_results"] != nil){
                              // Add each result to database
-                             for (index,foodItem) in returnedFoods.enumerated(){
-                                 let foodFromAPI = PFObject(className: "getFoodFromAPI")
+                             for (_,foodItem) in returnedFoods.enumerated(){
                                  let possibleRecipe = foodItem["title"] as! String
-                                 
-                                 foodFromAPI["foodName"] = possibleRecipe
-                                 foodFromAPI["foodId"] = index + 1
-                                 foodFromAPI.saveInBackground { (success, error) in
-                                     if success{
-                                         print("Recipe Saved!")
-                                         self.statusLabel.text = "Here Are Some Suggested Recipes:"
-                                         self.viewDidAppear(true)
-                                     }
-                                     
-                                     else{
-                                         print("Error: \(String(describing: error?.localizedDescription))")
-                                     }
-                                 }
-
-                                }
-                             
+                                 self.possibleFoods.append(possibleRecipe)
+                                 self.statusLabel.text = "Here Are Some Suggested Food Dishes:"
+                             }
                          }
                          else{
                              print("No recipes found")
                          }
                     }
-              
+                         self.tableView.reloadData()
                 }
                 task.resume()
              
@@ -201,16 +178,16 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        let foodRecipes = PFQuery(className: "getFoodFromAPI")
-        foodRecipes.findObjectsInBackground { (objects, error) -> Void  in
-            if error == nil{
-                if let everyRecipe = objects{
-                    for eaRecipe in everyRecipe{
-                        eaRecipe.deleteInBackground()
-                    }
-                }
-            }
-        }
+//        let foodRecipes = PFQuery(className: "getFoodFromAPI")
+//        foodRecipes.findObjectsInBackground { (objects, error) -> Void  in
+//            if error == nil{
+//                if let everyRecipe = objects{
+//                    for eaRecipe in everyRecipe{
+//                        eaRecipe.deleteInBackground()
+//                    }
+//                }
+//            }
+//        }
         self.tableView.reloadData()
     }
     
@@ -220,8 +197,9 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Unselect the row.
         tableView.deselectRow(at: indexPath, animated: false)
-        let index = possibleFoods[indexPath.row]
-        selectedRecipe = index["foodName"] as! String
+        
+        selectedRecipe = possibleFoods[indexPath.row]
+        print("Checkmark: \(selectedRecipe)")
         // make checkmark appear
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
@@ -232,7 +210,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
+    // handle segueways
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToRecipeScreen" {
             let nextDestination = segue.destination as! recipesScreenViewController
@@ -245,12 +223,12 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
-    @IBAction func goToRecipeScreen(_ sender: Any) {
+    @IBAction func goToRecipeScreenButton(_ sender: Any) {
         if selectedRecipe.isEmpty == false{
+            print("\(selectedRecipe)")
             performSegue(withIdentifier: "goToRecipeScreen", sender: nil)
         }
     }
-    
+
     
 }

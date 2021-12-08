@@ -13,8 +13,8 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     var picture: UIImage!
     var ingredidents = [PFObject]()
     
-    var selectedIngredientCount = 0
-    
+    var selectedIngredients: [IndexPath] = []
+
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,8 +25,8 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,13 +37,14 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
             if ingredidents != nil{
                 self.ingredidents = ingredidents!
                 self.tableView.reloadData()
-            }
-            
+                    
+                }
         })
     }
     
     // tableview functions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("\(ingredidents.count)")
         return ingredidents.count
     }
     
@@ -53,64 +54,67 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
         let ingredient = ingredidents[indexPath.row]
         cell.ingredientNameLabel.text = ingredient["ingredientName"] as! String
         
+        // to avoid repetitive checkmark cells
+        if self.selectedIngredients.contains(indexPath){
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
+        
         return cell
         
     }
-    
-    
-
+    // handle duplicate checkmarks
+    var indexNumber:NSInteger = -1
     // store checked ingredients in database when checked
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         // Unselect the row.
         tableView.deselectRow(at: indexPath, animated: false)
-
-        // make checkmark appear
-        let cell = tableView.cellForRow(at: indexPath) as! IngredientsCell
-        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-                    if cell.accessoryType == .checkmark {
-                        cell.accessoryType = .none
-                    } else {
-                        cell.accessoryType = .checkmark
-                    }
-                }
-    
-        // ingredient is checked, change value to true
-        if cell.accessoryType == .checkmark{
-            self.selectedIngredientCount += 1
-            let ingredientCheck = PFQuery(className: "chooseIngredients")
-            ingredientCheck.whereKey("ingredientName", equalTo: cell.ingredientNameLabel.text)
-            ingredientCheck.getFirstObjectInBackground { object, error in
-                if error == nil {
-                        if let ingredent = object {
-                            ingredent["isChecked"] = true
-                            ingredent.saveInBackground()
-                            print("Ingredient saved!")
-                        }
-                    }
-                }
+        
+        // check if ingredient has been selected
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark{
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
+        }else{
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
-        // ingredient unchecked, make false
-        else if cell.accessoryType == .none{
-            self.selectedIngredientCount -= 1
+        
+        if self.selectedIngredients.contains(indexPath){
+            if let index = selectedIngredients.firstIndex(of: indexPath){
+                selectedIngredients.remove(at: index)
+            }
             let ingredientCheck = PFQuery(className: "chooseIngredients")
-            ingredientCheck.whereKey("ingredientName", equalTo: cell.ingredientNameLabel.text)
+            ingredientCheck.whereKey("ingredientId", equalTo: indexPath.row+1)
             ingredientCheck.getFirstObjectInBackground { object, error in
                 if error == nil {
-                        if let ingredent = object {
-                            ingredent["isChecked"] = false
-                            ingredent.saveInBackground()
-                            print("Ingredient unsaved!")
-                        }
+                    if let ingredent = object {
+                        ingredent["isChecked"] = false
+                        ingredent.saveInBackground()
+                        print("\(ingredent["ingredientName"]) unsaved!")
                     }
                 }
+            }
+        }else{
+            self.selectedIngredients.append(indexPath)
+            let ingredientCheck = PFQuery(className: "chooseIngredients")
+            ingredientCheck.whereKey("ingredientId", equalTo: indexPath.row+1)
+            ingredientCheck.getFirstObjectInBackground { object, error in
+                if error == nil {
+                    if let ingredent = object {
+                        ingredent["isChecked"] = true
+                        ingredent.saveInBackground()
+                        print("\(ingredent["ingredientName"]) saved!")
+                    }
+                }
+            }
         }
     }
 
-
     
     @IBAction func goToFoodPickerButton(_ sender: Any) {
-        if selectedIngredientCount > 0{
+        if selectedIngredients.count > 0{
             performSegue(withIdentifier: "goToFoodPicker", sender: nil)
+        }else{
+            print("you didn't select shit, bitch")
         }
     }
     

@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GOx-m3-cD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1522" y="59"/>
+            <point key="canvasLocation" x="-1516" y="68"/>
         </scene>
         <!--Stream View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -110,7 +110,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
                                 <connections>
                                     <action selector="goToFoodPickerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJT-ZE-4Lk"/>
-                                    <segue destination="ZFM-Et-jKc" kind="show" identifier="goToFoodPicker" id="jgu-sk-rwA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -133,6 +132,7 @@
                     <connections>
                         <outlet property="nextButton" destination="Bkn-wn-loh" id="iYa-Fr-VbA"/>
                         <outlet property="tableView" destination="UY5-gr-ia7" id="Spa-mi-aRS"/>
+                        <segue destination="ZFM-Et-jKc" kind="show" identifier="goToFoodPicker" id="gAn-n0-rEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -202,6 +202,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Next"/>
+                                <connections>
+                                    <action selector="goToRecipeScreenButton:" destination="ZFM-Et-jKc" eventType="touchUpInside" id="rE6-nM-kuf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="None" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDt-Sa-OQ1" userLabel="Selected Ingredients Label">
                                 <rect key="frame" x="50" y="140" width="310" height="143"/>
