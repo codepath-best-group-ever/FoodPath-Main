@@ -13,9 +13,10 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
 
     @IBOutlet weak var foodsTableView: UITableView!
     @IBOutlet weak var recipesTableView: UITableView!
+    @IBOutlet weak var nextButton: UIButton!
     var savedFoods = [PFObject]()
     var savedRecipes = [PFObject]()
-    
+    var selectedFoodForNext = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView{
+            
             case foodsTableView:
                 return savedFoods.count
                 
@@ -69,6 +71,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         switch tableView{
+            
             case foodsTableView:
             let cell = tableView.dequeueReusableCell(withIdentifier: "savedFoodsTableViewCell") as! savedFoodsTableViewCell
             let savedFood = savedFoods[indexPath.row]
@@ -91,6 +94,70 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        var cell = UITableViewCell()
+        switch tableView{
+            
+            case foodsTableView:
+            // Unselect the row.
+            foodsTableView.deselectRow(at: indexPath, animated: false)
+            // make checkmark appear
+            let cell = foodsTableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+            for row in 0..<foodsTableView.numberOfRows(inSection: indexPath.section) {
+                if let cell = foodsTableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                    cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                }
+            }
+            // save the selected row's food name
+            let selectedFood = savedFoods[indexPath.row]
+            selectedFoodForNext = selectedFood["foodName"] as! String
+
+                
+
+            case recipesTableView:
+            
+            // Unselect the row.
+            recipesTableView.deselectRow(at: indexPath, animated: false)
+            // make checkmark appear
+            let cell = recipesTableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .checkmark
+            for row in 0..<recipesTableView.numberOfRows(inSection: indexPath.section) {
+                if let cell = recipesTableView.cellForRow(at: IndexPath(row: row, section: indexPath.section)) {
+                    cell.accessoryType = row == indexPath.row ? .checkmark : .none
+                }
+            }
+            
+            // direct to URL when clicked on source
+            let selectedSource = savedRecipes[indexPath.row]
+            if let url = URL(string: selectedSource["websiteURL"] as! String){
+            UIApplication.shared.open(url)
+        }
 
 
+            default:
+                print("error")
+        }
+    }
+    
+    // prepare segue to go to recipe picker
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRecipesScreen" {
+            let nextDestination = segue.destination as! recipesScreenViewController
+
+            nextDestination.food = self.selectedFoodForNext
+            nextDestination.screenName = "ingredients"
+
+        }
+    }
+    
+    
+    
+    @IBAction func goToRecipeScreen(_ sender: Any) {
+        performSegue(withIdentifier: "goToRecipesScreen", sender: nil)
+    }
+    
+    
+    
 }
