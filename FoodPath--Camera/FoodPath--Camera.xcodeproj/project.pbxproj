@@ -38,6 +38,9 @@
 		E5C417292749EB7700F6CAC4 /* FoodPath__CameraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C417282749EB7700F6CAC4 /* FoodPath__CameraUITestsLaunchTests.swift */; };
 		E5C417362749EC7200F6CAC4 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C417352749EC7200F6CAC4 /* StreamViewController.swift */; };
 		E5C417382749ECDC00F6CAC4 /* ImageRecognitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */; };
+		E5CB31502761CC3D0055095C /* savedRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB314F2761CC3D0055095C /* savedRecipesViewController.swift */; };
+		E5CB31522761CE180055095C /* savedFoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB31512761CE180055095C /* savedFoodsTableViewCell.swift */; };
+		E5CB31542761CE610055095C /* savedRecipesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CB31532761CE610055095C /* savedRecipesTableViewCell.swift */; };
 		E5D046CF27534F3B00E93C94 /* IngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */; };
 		E5D046D12753586500E93C94 /* FoodPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D046D02753586500E93C94 /* FoodPickerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -101,6 +104,9 @@
 		E5C417282749EB7700F6CAC4 /* FoodPath__CameraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPath__CameraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E5C417352749EC7200F6CAC4 /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		E5C417372749ECDC00F6CAC4 /* ImageRecognitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRecognitionViewController.swift; sourceTree = "<group>"; };
+		E5CB314F2761CC3D0055095C /* savedRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedRecipesViewController.swift; sourceTree = "<group>"; };
+		E5CB31512761CE180055095C /* savedFoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedFoodsTableViewCell.swift; sourceTree = "<group>"; };
+		E5CB31532761CE610055095C /* savedRecipesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedRecipesTableViewCell.swift; sourceTree = "<group>"; };
 		E5D046CE27534F3B00E93C94 /* IngredientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsCell.swift; sourceTree = "<group>"; };
 		E5D046D02753586500E93C94 /* FoodPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPickerViewController.swift; sourceTree = "<group>"; };
 		F165A6E3ACF5FA96DA2383C4 /* Pods-FoodPath--Camera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPath--Camera.release.xcconfig"; path = "Target Support Files/Pods-FoodPath--Camera/Pods-FoodPath--Camera.release.xcconfig"; sourceTree = "<group>"; };
@@ -293,6 +299,7 @@
 		E5C417042749EB7600F6CAC4 /* FoodPath--Camera */ = {
 			isa = PBXGroup;
 			children = (
+				E5CB314E2761CC0C0055095C /* savedRecipes */,
 				4405E10E2760299100183A42 /* foodPickerScreen */,
 				4477D928275F4954004C7F44 /* customElementAsset */,
 				4477D927275F4900004C7F44 /* foodPickerFromImageScreen */,
@@ -326,6 +333,16 @@
 				E5C417282749EB7700F6CAC4 /* FoodPath__CameraUITestsLaunchTests.swift */,
 			);
 			path = "FoodPath--CameraUITests";
+			sourceTree = "<group>";
+		};
+		E5CB314E2761CC0C0055095C /* savedRecipes */ = {
+			isa = PBXGroup;
+			children = (
+				E5CB314F2761CC3D0055095C /* savedRecipesViewController.swift */,
+				E5CB31512761CE180055095C /* savedFoodsTableViewCell.swift */,
+				E5CB31532761CE610055095C /* savedRecipesTableViewCell.swift */,
+			);
+			path = savedRecipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -572,13 +589,16 @@
 			files = (
 				447E5D0627570C5E00EDCD7D /* MobileNet.mlmodel in Sources */,
 				44D757EC275DBFDE0040FEA1 /* recipesTableViewCell.swift in Sources */,
+				E5CB31502761CC3D0055095C /* savedRecipesViewController.swift in Sources */,
 				447E5D1027570DFC00EDCD7D /* VNClassificationObservationConfidenceString.swift in Sources */,
 				447E5D142757156500EDCD7D /* galleryPicker.swift in Sources */,
 				E5C417062749EB7600F6CAC4 /* AppDelegate.swift in Sources */,
 				4410AE0127592AC4008F57F8 /* LogoAnimationViewController.swift in Sources */,
 				E5C417082749EB7600F6CAC4 /* SceneDelegate.swift in Sources */,
 				447E5D122757151A00EDCD7D /* cameraPicker.swift in Sources */,
+				E5CB31522761CE180055095C /* savedFoodsTableViewCell.swift in Sources */,
 				44D757EA275DB15A0040FEA1 /* recipesScreenViewController.swift in Sources */,
+				E5CB31542761CE610055095C /* savedRecipesTableViewCell.swift in Sources */,
 				4410AE0527593A09008F57F8 /* SwiftyGIFViewController.swift in Sources */,
 				44D757E4275D9C3D0040FEA1 /* foodDishTableViewCell.swift in Sources */,
 				4424073D2759783F00C9E2CD /* Food101.mlmodel in Sources */,
