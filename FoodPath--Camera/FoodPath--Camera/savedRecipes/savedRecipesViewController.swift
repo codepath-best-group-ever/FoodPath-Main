@@ -14,6 +14,8 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var foodsTableView: UITableView!
     @IBOutlet weak var recipesTableView: UITableView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    
     var savedFoods = [PFObject]()
     var savedRecipes = [PFObject]()
     var selectedFoodForNext = ""
@@ -94,13 +96,11 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
         
     }
     
-    
+    // checkmark functionality
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        var cell = UITableViewCell()
         switch tableView{
             
             case foodsTableView:
-            // Unselect the row.
             foodsTableView.deselectRow(at: indexPath, animated: false)
             // make checkmark appear
             let cell = foodsTableView.cellForRow(at: indexPath)
@@ -117,8 +117,6 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
                 
 
             case recipesTableView:
-            
-            // Unselect the row.
             recipesTableView.deselectRow(at: indexPath, animated: false)
             // make checkmark appear
             let cell = recipesTableView.cellForRow(at: indexPath)
@@ -160,4 +158,43 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     
     
     
+
+    
+    // !!!!!!!!!!!!! ELAINE FIX THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // clear data from both database tables
+    @IBAction func clearHistory(_ sender: Any) {
+        let allSavedRecipes = PFQuery(className: "getRecipesFromAPI")
+        allSavedRecipes.findObjectsInBackground { (objects, error) -> Void  in
+            if error == nil{
+                if let everyRecipe = objects{
+                    for eaRecipe in everyRecipe{
+                        eaRecipe.deleteInBackground()
+                    }
+                }
+            }
+            self.recipesTableView.reloadData()
+        }
+        
+        
+        let allSavedFoods = PFQuery(className: "getFoodFromAPI")
+        allSavedFoods.findObjectsInBackground { (objects, error) -> Void  in
+            if error == nil{
+                if let everyFood = objects{
+                    for eaFood in everyFood{
+                        eaFood.deleteInBackground()
+                    }
+                }
+            }
+            self.foodsTableView.reloadData()
+        }
+        
+//        self.recipesTableView.reloadData()
+//        self.foodsTableView.reloadData()
+    }
+    
+    
+  
+    
 }
+    
+
