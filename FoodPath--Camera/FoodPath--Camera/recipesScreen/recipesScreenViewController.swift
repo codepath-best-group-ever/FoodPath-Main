@@ -120,13 +120,59 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         return cell
     }
 
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Unselect the row.
         tableView.deselectRow(at: indexPath, animated: false)
         let recipeTitles = Array(recipeSuggestion.keys)
         selectedRecipe = recipeTitles[indexPath.row]
         selectedRecipeLink = recipeSuggestion[selectedRecipe]!
-        if let url = URL(string: selectedRecipeLink){
+        
+        
+ 
+        
+        let saveRecipes = PFObject(className: "getRecipesFromAPI")
+
+        
+        // save selected website title and link in database if not already in there
+        let currentSaved = PFQuery(className: "getRecipesFromAPI")
+        currentSaved.whereKey("websiteTitle", equalTo: self.selectedRecipe)
+        currentSaved.getFirstObjectInBackground { object, error in
+            if error != nil {
+                saveRecipes["websiteTitle"] = self.selectedRecipe
+                saveRecipes["websiteURL"] = self.selectedRecipeLink
+
+
+
+                // retrieve the last recipeId in database if any exist and store new Id
+                var recipeId = Int()
+                let getLastSaved = PFQuery(className: "getRecipesFromAPI")
+                getLastSaved.order(byDescending: "recipeId")
+                getLastSaved.getFirstObjectInBackground { object, error in
+                    if error == nil {
+                                if let lastFood = object{
+                                    recipeId = (lastFood["recipeId"] as! Int) + 1
+                                    saveRecipes["recipeId"] = recipeId
+                                }
+                            }
+                    else{
+                        saveRecipes["recipeId"] = 1
+                    }
+                    saveRecipes.saveInBackground()
+                }
+            }
+
+            else{
+                print("RECIPE ALREADY EXISTS")
+            }
+        }
+
+        
+        
+        
+
+            if let url = URL(string: self.selectedRecipeLink){
             UIApplication.shared.open(url)
         }
 
@@ -140,13 +186,5 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
 
-    /*
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -218,6 +218,48 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             nextDestination.food = selectedRecipe
             nextDestination.screenName = "ingredients"
             
+            
+            
+            let saveFoodRecipes = PFObject(className: "getFoodFromAPI")
+            
+            
+            // save selected food name in database if not already in there
+            let currentSaved = PFQuery(className: "getFoodFromAPI")
+            currentSaved.whereKey("foodName", equalTo: self.selectedRecipe)
+            currentSaved.getFirstObjectInBackground { object, error in
+                if error != nil {
+                saveFoodRecipes["foodName"] = self.selectedRecipe
+                
+                    
+                // retrieve the last foodId in database if any, store new Id
+                var foodId = Int()
+                let getLastSaved = PFQuery(className: "getFoodFromAPI")
+                getLastSaved.order(byDescending: "foodId")
+                getLastSaved.getFirstObjectInBackground { object, error in
+                    if error == nil {
+                                if let lastFood = object{
+                                    foodId = (lastFood["foodId"] as! Int) + 1
+                                    saveFoodRecipes["foodId"] = foodId
+                                }
+                            }
+                    else{
+                        saveFoodRecipes["foodId"] = 1
+                    }
+                    saveFoodRecipes.saveInBackground()
+                }
+            }
+                
+                else{
+                    print("RECIPE ALREADY EXISTS")
+                }
+            }
+            
+            
+            
+            
+     
+            
+            
         } else if segue.identifier == "backToStream"{
             clearData()
         }
@@ -225,7 +267,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func goToRecipeScreenButton(_ sender: Any) {
         if selectedRecipe.isEmpty == false{
-            print("\(selectedRecipe)")
+//            print("\(selectedRecipe)")
             performSegue(withIdentifier: "goToRecipeScreen", sender: nil)
         }
     }
