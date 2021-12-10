@@ -1,8 +1,10 @@
 #  FoodPath
 
-- for getFoodForAPI/getFoodFromML   -> should we only store the selected food from users? can act as a history checker + as a future feature;
+## to do
 - clean up database
-- session clean up -> ischecked field reset
+- session clean up -> ischecked field reset (for browsing history)
+- design
+- imagerecognitionml to delete the foodlabel output
 
 ## updates:
 - add duplicate checkmark handling 
