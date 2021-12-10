@@ -23,6 +23,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     var possibleFoods: [String] = []
     var foodSuggestions = [[String:Any]]()
     var selectedRecipe: String = ""
+    var selectedRecipeIndexPath: IndexPath = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,13 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 
          cell.recipeChoiceLabel.text = possibleFoods[indexPath.row]
          
+         // to avoid repetitive checkmark cells
+         if self.selectedRecipeIndexPath == indexPath{
+             cell.accessoryType = .checkmark
+         }else{
+             cell.accessoryType = .none
+         }
+         
          return cell
      
      }
@@ -110,11 +118,12 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                 //Set up URL Query to call search API
                 var urlComponents = URLComponents()
                 urlComponents.scheme = "https"
-                urlComponents.host = "serpapi.com"
-                urlComponents.path = "/search"
+                urlComponents.host = "api.edamam.com"
+                urlComponents.path = "/api/food-database/v2/parser"
                 urlComponents.queryItems = [
-                    URLQueryItem(name: "q", value: searchTerm),
-                    URLQueryItem(name: "api_key", value: "1e9bf17c61d9a8fb0143e0e681861b6249f8a07b2d8fe2a2d1ae04ce08b5e2be")
+                    URLQueryItem(name: "app_id", value: "ab02af7d"),
+                    URLQueryItem(name: "app_key", value: "ba7d7b8364a7f7423abee89375a84d4a"),
+                    URLQueryItem(name: "ingr", value: searchTerm)
                 ]
                 guard let someString = urlComponents.url?.absoluteString else { return  }
             
@@ -127,20 +136,17 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                      } else if let data = data {
                             let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
             
-                         self.foodSuggestions = dataDictionary["recipes_results"] as! [[String:Any]]
-                         let returnedFoods = self.foodSuggestions
-                         
-                         
-                         if(dataDictionary["recipes_results"] != nil){
-                             // Add each result to database
-                             for (_,foodItem) in returnedFoods.enumerated(){
-                                 let possibleRecipe = foodItem["title"] as! String
-                                 self.possibleFoods.append(possibleRecipe)
-                                 self.statusLabel.text = "Here Are Some Suggested Food Dishes:"
+                         let foodDictionary = dataDictionary["hints"] as! [[String:Any]]
+                         for item in foodDictionary{
+                             let returnedFoods = item["food"] as! [String:Any]
+                             for (key, value) in returnedFoods{
+                                 if key == "label"{
+                                     let possibleRecipe = value as! String
+                                     self.possibleFoods.append(possibleRecipe)
+                                     self.statusLabel.text = "Here Are Some Suggested Food Dishes:"
+                                 }
                              }
-                         }
-                         else{
-                             print("No recipes found")
+
                          }
                     }
                          self.tableView.reloadData()
@@ -155,6 +161,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
             
         }
     }
+
 
     
     // View was closed, delete table data
@@ -177,17 +184,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             }
         }
-        
-//        let foodRecipes = PFQuery(className: "getFoodFromAPI")
-//        foodRecipes.findObjectsInBackground { (objects, error) -> Void  in
-//            if error == nil{
-//                if let everyRecipe = objects{
-//                    for eaRecipe in everyRecipe{
-//                        eaRecipe.deleteInBackground()
-//                    }
-//                }
-//            }
-//        }
         self.tableView.reloadData()
     }
     
@@ -253,13 +249,6 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
                     print("RECIPE ALREADY EXISTS")
                 }
             }
-            
-            
-            
-            
-     
-            
-            
         } else if segue.identifier == "backToStream"{
             clearData()
         }

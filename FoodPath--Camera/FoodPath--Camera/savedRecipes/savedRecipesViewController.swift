@@ -22,6 +22,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         foodsTableView.delegate = self
         foodsTableView.dataSource = self
         
@@ -163,6 +164,18 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     // !!!!!!!!!!!!! ELAINE FIX THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
     // clear data from both database tables
     @IBAction func clearHistory(_ sender: Any) {
+        Task.init{
+            do{
+                await self.clearHistory()
+                self.viewDidAppear(true)
+                
+            }
+        }
+//        self.recipesTableView.reloadData()
+//        self.foodsTableView.reloadData()
+    }
+    
+    func clearHistory() async{
         let allSavedRecipes = PFQuery(className: "getRecipesFromAPI")
         allSavedRecipes.findObjectsInBackground { (objects, error) -> Void  in
             if error == nil{
@@ -172,7 +185,6 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
                     }
                 }
             }
-            self.recipesTableView.reloadData()
         }
         
         
@@ -185,14 +197,10 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
                     }
                 }
             }
-            self.foodsTableView.reloadData()
+        
         }
         
-//        self.recipesTableView.reloadData()
-//        self.foodsTableView.reloadData()
     }
-    
-    
   
     
 }

@@ -19,7 +19,9 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var tableView: UITableView!
     
     // back button
-    @IBAction func unwindToStream(_ unwindSegue: UIStoryboardSegue) {}
+    @IBAction func unwindToStream(_ unwindSegue: UIStoryboardSegue) {
+        selectedIngredients.removeAll()
+    }
     
     @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
@@ -114,7 +116,7 @@ class StreamViewController: UIViewController, UIImagePickerControllerDelegate, U
         if selectedIngredients.count > 0{
             performSegue(withIdentifier: "goToFoodPicker", sender: nil)
         }else{
-            print("you didn't select shit, bitch")
+            print("No ingredient was chosen!")
         }
     }
     
