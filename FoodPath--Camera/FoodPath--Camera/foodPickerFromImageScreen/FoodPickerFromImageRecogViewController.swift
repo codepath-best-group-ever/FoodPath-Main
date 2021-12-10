@@ -5,10 +5,9 @@
 //  Created by Elaine Chan on 12/5/21.
 //
 
-// BRAIN DUMP TO DO:
-//  - add food data to parse 
 
 import UIKit
+import Parse
 
 class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -16,13 +15,14 @@ class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDeleg
     var foodList: [String] = []
     
     // find which cell is being tapped
-    var selectedFood: IndexPath = []
+    var selectedFoodIndexPath: IndexPath = []
+    var selectedRecipe: String = ""
     
     // button to segue to recipes screen
     @IBOutlet weak var confirmButton: UIButton!
     
     @IBAction func goToRecipesVC(_ sender: Any) {
-        if selectedFood != []{
+        if selectedFoodIndexPath != []{
             //perform segue when food dish is selected
             performSegue(withIdentifier: "goToRecipes", sender: nil)
         }
@@ -39,22 +39,61 @@ class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDeleg
         // segue to recipes screen
         else if segue.identifier == "goToRecipes" {
             let nextDestination = segue.destination as! recipesScreenViewController
-            nextDestination.food = foodList[selectedFood.row]
+            nextDestination.food = selectedRecipe
             nextDestination.screenName = "image"
+            
+            let saveFoodRecipes = PFObject(className: "getFoodFromAPI")
+            
+            
+            // save selected food name in database if not already in there
+            let currentSaved = PFQuery(className: "getFoodFromAPI")
+            currentSaved.whereKey("foodName", equalTo: self.selectedRecipe)
+            currentSaved.getFirstObjectInBackground { object, error in
+                if error != nil {
+                saveFoodRecipes["foodName"] = self.selectedRecipe
+                
+                    
+                // retrieve the last foodId in database if any, store new Id
+                var foodId = Int()
+                let getLastSaved = PFQuery(className: "getFoodFromAPI")
+                getLastSaved.order(byDescending: "foodId")
+                getLastSaved.getFirstObjectInBackground { object, error in
+                    if error == nil {
+                                if let lastFood = object{
+                                    foodId = (lastFood["foodId"] as! Int) + 1
+                                    saveFoodRecipes["foodId"] = foodId
+                                }
+                            }
+                    else{
+                        saveFoodRecipes["foodId"] = 1
+                    }
+                    saveFoodRecipes.saveInBackground()
+                }
+            }
+                
+                else{
+                    print("RECIPE ALREADY EXISTS")
+                }
+            }
         }
     }
-    @IBAction func unwindToFoodPickerFromImageRecog(_ unwindSegue: UIStoryboardSegue) {}
+    @IBAction func unwindFromRecipeScreen(_ unwindSegue: UIStoryboardSegue) {}
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // cutom table view cell
+        // custom table view cell
         let nib = UINib(nibName: "foodDishTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "foodDishTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+        super.viewDidAppear(animated)
     }
     
     // tableview functions
@@ -66,7 +105,11 @@ class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodDishTableViewCell", for: indexPath) as! foodDishTableViewCell
         cell.myLabel.text = foodList[indexPath.row]
         cell.myImageView.image = UIImage(named: "check-mark_2714-fe0f")
-        
+        if self.selectedFoodIndexPath == indexPath{
+            cell.accessoryType = .checkmark
+        }else{
+            cell.accessoryType = .none
+        }
         return cell
     }
     
@@ -74,7 +117,8 @@ class FoodPickerFromImageRecogViewController: UIViewController, UITableViewDeleg
         // Unselect the row.
         tableView.deselectRow(at: indexPath, animated: false)
         
-        selectedFood = indexPath
+        selectedFoodIndexPath = indexPath
+        selectedRecipe = foodList[selectedFoodIndexPath.row]
         
         // make checkmark appear
         let cell = tableView.cellForRow(at: indexPath)

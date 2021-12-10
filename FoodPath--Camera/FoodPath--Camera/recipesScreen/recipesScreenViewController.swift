@@ -45,6 +45,12 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         // Do any additional setup after loading the view.
     }
     
+    // reload tableview on view did appear
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.tableView.reloadData()
+    }
+    
     func searchAPI() async{
         var searchTerm: String = "Recipes+for+"
         
@@ -78,20 +84,6 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
                         let recipeSource = foodItem["source"] as! String
                         let recipeLink = foodItem["link"] as! String
                         self.recipeSuggestion[recipeSource] = recipeLink
-                        
-//                        let recipeDatabase = PFObject(className: "getRecipesFromAPI")
-//                        recipeDatabase["recipeID"] = index + 1
-//                        recipeDatabase["websiteTitle"] = recipeSource
-//                        recipeDatabase["websiteURL"] = recipeLink
-//                        recipeDatabase.saveInBackground { (success, error) in
-//                            if success{
-//                                print("Recipe Saved!")
-//                            }
-//
-//                            else{
-//                                print("Error: \(String(describing: error?.localizedDescription))")
-//                            }
-//                        }
                         
                     }
                     
@@ -128,10 +120,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         let recipeTitles = Array(recipeSuggestion.keys)
         selectedRecipe = recipeTitles[indexPath.row]
         selectedRecipeLink = recipeSuggestion[selectedRecipe]!
-        
-        
- 
-        
+
         let saveRecipes = PFObject(className: "getRecipesFromAPI")
 
         
@@ -142,8 +131,6 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
             if error != nil {
                 saveRecipes["websiteTitle"] = self.selectedRecipe
                 saveRecipes["websiteURL"] = self.selectedRecipeLink
-
-
 
                 // retrieve the last recipeId in database if any exist and store new Id
                 var recipeId = Int()
@@ -168,11 +155,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
 
-        
-        
-        
-
-            if let url = URL(string: self.selectedRecipeLink){
+        if let url = URL(string: self.selectedRecipeLink){
             UIApplication.shared.open(url)
         }
 
@@ -185,6 +168,5 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
-
 
 }

@@ -20,6 +20,9 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     var savedRecipes = [PFObject]()
     var selectedFoodForNext = ""
     
+    // back button
+    @IBAction func unwindFromRecipeScreen(_ unwindSegue: UIStoryboardSegue) {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +35,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-            
+        
         let foods = PFQuery(className: "getFoodFromAPI")
         foods.findObjectsInBackground(block: { (foods, error) in
             if foods != nil{
@@ -72,7 +75,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
+        let cell = UITableViewCell()
         switch tableView{
             
             case foodsTableView:
@@ -156,21 +159,16 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func goToRecipeScreen(_ sender: Any) {
         performSegue(withIdentifier: "goToRecipesScreen", sender: nil)
     }
-    
-    
-    
 
-    
-    // !!!!!!!!!!!!! ELAINE FIX THIS !!!!!!!!!!!!!!!!!!!!!!!!!!!
     // clear data from both database tables
     @IBAction func clearHistory(_ sender: Any) {
         Task.init{
             do{
                 await self.clearHistory()
                 self.viewDidAppear(true)
-                
             }
         }
+        
 //        self.recipesTableView.reloadData()
 //        self.foodsTableView.reloadData()
     }
@@ -199,7 +197,7 @@ class savedRecipesViewController: UIViewController, UITableViewDelegate, UITable
             }
         
         }
-        
+
     }
   
     

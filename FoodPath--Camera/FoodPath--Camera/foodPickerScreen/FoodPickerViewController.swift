@@ -164,11 +164,11 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
 
 
     
-    // View was closed, delete table data
-    override func viewDidDisappear(_ animated: Bool) {
-        clearData()
-    }
-    
+//    // View was closed, delete table data
+//    override func viewDidDisappear(_ animated: Bool) {
+//        clearData()
+//    }
+//
   
     // Resets checked ingredients and clear table
     func clearData(){
@@ -193,7 +193,7 @@ class FoodPickerViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Unselect the row.
         tableView.deselectRow(at: indexPath, animated: false)
-        
+        selectedRecipeIndexPath = indexPath
         selectedRecipe = possibleFoods[indexPath.row]
         print("Checkmark: \(selectedRecipe)")
         // make checkmark appear
