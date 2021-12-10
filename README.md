@@ -49,7 +49,7 @@ Here's a walkthrough of implemented user stories:
 **Optional Nice-to-have Stories**
 - [ ] User can save recipes for later reference 
 - [ ] User can discover different recipes (be recommended different recipes) based on time of day 
-- [ ] User can see a list of recent searches
+- [x] User can see a list of recent searches
 - [ ] User can change the settings of the app (ex: dark mode)
 
 ### 2. Screen Archetypes
