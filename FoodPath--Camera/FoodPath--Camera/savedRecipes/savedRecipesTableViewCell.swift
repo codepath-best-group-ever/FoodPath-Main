@@ -10,6 +10,7 @@ import UIKit
 class savedRecipesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var savedRecipeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

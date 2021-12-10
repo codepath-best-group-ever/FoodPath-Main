@@ -66,14 +66,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientsCell" id="Scg-T5-zJ1" customClass="IngredientsCell" customModule="FoodPath__Camera" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Scg-T5-zJ1" id="ePc-Ne-l0g">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APY-lS-VDg">
-                                                    <rect key="frame" x="20" y="11" width="126.5" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="126.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -113,12 +113,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQn-VM-Enj">
-                                <rect key="frame" x="5" y="44" width="119" height="31"/>
+                                <rect key="frame" x="-2" y="44" width="134" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Saved Recipes"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Browsing History"/>
                                 <connections>
-                                    <segue destination="OzQ-ug-Ubh" kind="show" id="Pie-jf-uHF"/>
+                                    <segue destination="nn4-M2-0S2" kind="show" id="9ed-uq-pxN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -148,16 +148,35 @@
             </objects>
             <point key="canvasLocation" x="44.927536231884062" y="67.633928571428569"/>
         </scene>
-        <!--Saved Recipes View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="g7f-rJ-Rn3">
+            <objects>
+                <tabBarController modalPresentationStyle="fullScreen" id="nn4-M2-0S2" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="SS2-lH-hQN"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jJn-N7-5Ui">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OzQ-ug-Ubh" kind="relationship" relationship="viewControllers" id="QRd-qs-IdC"/>
+                        <segue destination="Q61-vm-oQG" kind="relationship" relationship="viewControllers" id="wHF-ZM-GHE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fma-zh-c68" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-832"/>
+        </scene>
+        <!--Food-->
         <scene sceneID="fbO-Ud-sGL">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="OzQ-ug-Ubh" customClass="savedRecipesViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="OzQ-ug-Ubh" customClass="savedFoodsViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SMW-dU-R5y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iU7-nm-CQG">
-                                <rect key="frame" x="0.0" y="116" width="414" height="327"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="559"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -169,7 +188,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3E5-BE-2M8">
-                                                    <rect key="frame" x="34" y="11" width="90" height="21"/>
+                                                    <rect key="frame" x="34" y="11" width="360" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -190,58 +209,15 @@
                                     <navigationItem id="zwQ-Cb-Eik"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE8-3X-Bri">
-                                <rect key="frame" x="234" y="814" width="180" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Next"/>
-                                <connections>
-                                    <action selector="goToRecipeScreen:" destination="OzQ-ug-Ubh" eventType="touchUpInside" id="L4T-GN-OFl"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Browsed Foods:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jp3-Um-khx">
-                                <rect key="frame" x="136" y="87" width="161" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mZp-Va-BpD">
-                                <rect key="frame" x="0.0" y="525" width="414" height="290"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedRecipesTableViewCell" id="tGo-7H-Ive" customClass="savedRecipesTableViewCell" customModule="FoodPath__Camera" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tGo-7H-Ive" id="Ldv-tn-XVl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Recipe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7e-nY-wWs">
-                                                    <rect key="frame" x="43" y="11" width="103" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="savedRecipeLabel" destination="D7e-nY-wWs" id="VQt-Zw-s5n"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Browsed Recipes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s5-f6-cFu">
-                                <rect key="frame" x="123" y="485" width="175" height="21"/>
+                                <rect key="frame" x="127" y="116" width="161" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8m-2P-zxh">
-                                <rect key="frame" x="20" y="818" width="153" height="51"/>
+                                <rect key="frame" x="20" y="712" width="153" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Clear History"/>
@@ -249,22 +225,46 @@
                                     <action selector="clearHistory:" destination="OzQ-ug-Ubh" eventType="touchUpInside" id="3Xp-Ai-GQt"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DjQ-hc-4X6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="MJc-V7-cmQ">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="tQe-Ot-raU">
+                                            <connections>
+                                                <segue destination="Gtl-vr-jep" kind="unwind" unwindAction="unwindToStream:" id="JJ9-oz-vu9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ef-FZ-LEe">
+                                <rect key="frame" x="241" y="712" width="153" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Find Recipes"/>
+                                <connections>
+                                    <action selector="clearHistory:" destination="OzQ-ug-Ubh" eventType="touchUpInside" id="DX9-7D-VKA"/>
+                                    <action selector="goToRecipeScreen:" destination="OzQ-ug-Ubh" eventType="touchUpInside" id="LbJ-Ju-5Dv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qqj-Mn-I7w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Food" image="fork.knife" catalog="system" id="TAX-TH-uRW"/>
                     <navigationItem key="navigationItem" id="PQQ-d1-Ogn"/>
                     <connections>
                         <outlet property="clearButton" destination="I8m-2P-zxh" id="XKf-jY-pfZ"/>
                         <outlet property="foodsTableView" destination="iU7-nm-CQG" id="VSc-Sb-HEi"/>
-                        <outlet property="nextButton" destination="nE8-3X-Bri" id="kV4-L7-keO"/>
-                        <outlet property="recipesTableView" destination="mZp-Va-BpD" id="s3h-Zo-oh1"/>
+                        <outlet property="nextButton" destination="8ef-FZ-LEe" id="7Xh-29-mPA"/>
                         <segue destination="hS5-2Z-XwQ" kind="show" identifier="goToRecipesScreen" id="jNg-bC-8AW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxH-xO-1Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Gtl-vr-jep" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="-684"/>
+            <point key="canvasLocation" x="1679.7101449275362" y="-1173.2142857142856"/>
         </scene>
         <!--Food Picker View Controller-->
         <scene sceneID="a0I-sn-kU0">
@@ -376,7 +376,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ez-Sf-hHJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="oia-9z-fda" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1386" y="86"/>
+            <point key="canvasLocation" x="1383" y="97"/>
         </scene>
         <!--Image Recognition View Controller-->
         <scene sceneID="7ht-RF-DZr">
@@ -698,12 +698,101 @@
             </objects>
             <point key="canvasLocation" x="2522" y="394"/>
         </scene>
+        <!--Recipe-->
+        <scene sceneID="vSd-uJ-Zh4">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="Q61-vm-oQG" customClass="savedRecipesViewController" customModule="FoodPath__Camera" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b0C-y2-s3T">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OND-4P-52c">
+                                <rect key="frame" x="0.0" y="116" width="414" height="559"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="savedRecipesTableViewCell" id="2Vl-Vk-2E9" userLabel="savedRecipesTableViewCell" customClass="savedRecipesTableViewCell" customModule="FoodPath__Camera" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Vl-Vk-2E9" id="Hmn-yS-cXn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saved Food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOg-Ur-qoA">
+                                                    <rect key="frame" x="34" y="11" width="360" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="savedRecipeLabel" destination="XOg-Ur-qoA" id="78o-L8-EVn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-qt-P1A">
+                                <rect key="frame" x="-7" y="0.0" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="Qe8-h1-n3u"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Browsed Recipes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDW-Wt-7dP">
+                                <rect key="frame" x="127" y="116" width="175" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ouw-EB-3Yi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem id="ppp-o4-iXv">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" id="9cI-Lq-E8W">
+                                            <connections>
+                                                <segue destination="Bp9-Fh-zyw" kind="unwind" unwindAction="unwindToStream:" id="KgX-OW-CRw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4G-2B-AmA">
+                                <rect key="frame" x="131" y="708" width="153" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Clear History"/>
+                                <connections>
+                                    <action selector="clearHistory:" destination="Q61-vm-oQG" eventType="touchUpInside" id="wEo-Ou-tnz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="b9f-mE-Bf4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Recipe" image="book" catalog="system" id="gjo-iD-MoU"/>
+                    <navigationItem key="navigationItem" id="ik2-Db-Yr3"/>
+                    <connections>
+                        <outlet property="clearButton" destination="X4G-2B-AmA" id="bwp-JV-Pzx"/>
+                        <outlet property="recipesTableView" destination="OND-4P-52c" id="73u-cW-hJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t8G-us-25B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Bp9-Fh-zyw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1679.7101449275362" y="-516.29464285714289"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jNg-bC-8AW"/>
+        <segue reference="alJ-N5-DOj"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="foodCover" width="500" height="500"/>
+        <image name="fork.knife" catalog="system" width="92" height="128"/>
         <image name="launchScreenBg" width="1024" height="1024"/>
         <image name="plate" width="6912" height="3456"/>
         <systemColor name="systemBackgroundColor">

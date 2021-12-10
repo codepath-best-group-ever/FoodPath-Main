@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     $0.applicationId = "aFW6isBoKWWT1DTChc3dm6J7iQDWd7E3TxOnRPNA"
                     $0.clientKey = "GFrrXbxCy2V7dm9pbM7IjBmthippMWFrqS6D93Vy"
                     $0.server = "https://parseapi.back4app.com"
-            }
-            Parse.initialize(with: parseConfig)
-        
-            return true
+        }
+        Parse.initialize(with: parseConfig)
+    
+        return true
     }
 
 
