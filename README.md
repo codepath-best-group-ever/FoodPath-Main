@@ -20,9 +20,13 @@ Helps users recognize an unknown food dish through image recognition and by spec
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+#### Part 4
+<img src="https://user-images.githubusercontent.com/71743181/145513428-61a52211-47ba-444a-88f0-b8cfdccf2a34.gif" width=250 height=500>
+#### Part 3
 <img src="https://user-images.githubusercontent.com/71743181/144953355-9da52108-46cd-4c21-8856-01b24590d42e.gif" width = 250 height = 500>
+#### Part 2
 <img src= "https://user-images.githubusercontent.com/43968366/142963603-87182839-a010-439a-8ce3-d4fe7063dde6.gif" width=250 height=500>
+#### Part 1
 <img src="https://user-images.githubusercontent.com/43968366/143981252-d5ab8fe4-81f6-4fb6-9036-b0ef42fac17c.gif"
  width=250 height=500>
 
@@ -36,8 +40,8 @@ Here's a walkthrough of implemented user stories:
 - [x] User can access camera to take a picture of their food
 - [x] User can be recommended a list of food dishes based off the user's selected ingredients
 - [x] User can select the from a list of recommended food dishes
-- [ ] User can select from a list of recommended recipes
-- [ ] User can be redirected to the website of the recipe
+- [x] User can select from a list of recommended recipes
+- [x] User can be redirected to the website of the recipe
 
 **Optional Nice-to-have Stories**
 - [ ] User can save recipes for later reference 
