@@ -64,7 +64,7 @@ class recipesScreenViewController: UIViewController, UITableViewDelegate, UITabl
         urlComponents.path = "/search"
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: searchTerm),
-            URLQueryItem(name: "api_key", value: "1e9bf17c61d9a8fb0143e0e681861b6249f8a07b2d8fe2a2d1ae04ce08b5e2be")
+            URLQueryItem(name: "api_key", value: "9f9c2e4c13642c1e060f3bdbd4feff96b02a10c9ce6289e58666c3963aa29dba")
         ]
         guard let someString = urlComponents.url?.absoluteString else { return  }
         let url = URL(string: someString)!

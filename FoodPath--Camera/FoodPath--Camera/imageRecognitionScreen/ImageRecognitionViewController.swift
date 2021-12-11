@@ -31,16 +31,12 @@ class ImageRecognitionViewController: UIViewController, ObservableObject{
     // unwind segue and clear foodlist
     @IBAction func unwindToImageRecog(_ segue: UIStoryboardSegue) {
         foodList.removeAll()
-        self.imageView.isHidden = true
-        self.foodDishesLabel.isHidden = true
-        self.displayTitle.isHidden = true
         self.firstRun = true
     }
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var foodDishesLabel: UILabel!
-    
-    @IBOutlet weak var displayTitle: UILabel!
+
+
     @IBOutlet weak var galleryUIButton: UIButton!
     @IBOutlet weak var cameraUIButton: UIButton!
     // a predictor instance that uses Vision and Core ML to generate strings from a photo
@@ -87,16 +83,13 @@ extension ImageRecognitionViewController {
     }
     
     func updateFoodDish(_ predictions: String) {
-        DispatchQueue.main.async {
-            self.foodDishesLabel.text = predictions
-        }
+
         // show prediction labels if photo has been taken / chosen
         if firstRun {
             DispatchQueue.main.async {
                 self.firstRun = false
                 self.imageView.isHidden = false
-                self.foodDishesLabel.isHidden = false
-                self.displayTitle.isHidden = false
+
             }
         }
     }
