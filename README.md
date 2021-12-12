@@ -20,6 +20,9 @@ Helps users recognize an unknown food dish through image recognition and by spec
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+#### Final
+<img src="https://user-images.githubusercontent.com/71743181/145700336-8327d9f4-db96-4211-a328-858a87f84dc4.gif" width=250 height=500>
+
 #### Part 4
 <img src="https://user-images.githubusercontent.com/71743181/145513428-61a52211-47ba-444a-88f0-b8cfdccf2a34.gif" width=250 height=500>
 
