@@ -200,27 +200,7 @@ Here's a walkthrough of implemented user stories:
     - (Create/POST) upload name of food dish to recipe search api
     - (Read/GET) query all recipes related to food dish
 
-          ```
-          var unirest = require("unirest");
-          var req = unirest("GET", "https://mytweetmark-homecook.p.rapidapi.com/markets");
-
-             seq.query({
-            "searchMarket": "San" });
-
-            req.headers({
-            "x-rapidapi-key": "SIGN-UP-FOR-KEY",
-            "x-rapidapi-host": "mytweetmark-homecook.p.rapidapi.com",
-            "useQueryString": true
-                        });
-
-
-            req.end(function (res) {
-            if (res.error) throw new Error(res.error);
-
-            console.log(res.body);
-                    });
-
-    
+ 
 
 ### [Optional] Existing API endpoints
 Google Cloud Vision API - label_detection
