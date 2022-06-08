@@ -1,5 +1,5 @@
 # FoodPath
-&copy; 2022 Kim Chheu & Elaine Chan
+&copy; 2021 Kim Chheu & Elaine Chan
 
 ## Table of Contents
 1. [Overview](#Overview)
