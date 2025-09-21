@@ -5,7 +5,8 @@
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
-4. [Schema](#Schema)
+4. [TechStack](#TechStack)
+5. [Schema](#Schema)
 
 ## Overview
 ### Description
@@ -105,6 +106,17 @@ Here's a walkthrough of implemented user stories:
 
 ### [BONUS] Digital Wireframes & Mockups
 ![](https://i.imgur.com/uTD3Gyd.jpg)
+
+## TechStack
+- Swift
+- Parse Database
+
+### Manual User Selection of Ingredients
+- Edamam API to recommend food dishes based off ingredients
+- The user's selected food dish is fed to Google's SerpAPI to obtain websites that have those recipes
+
+### Image Recogniton
+- Core ml model based off of the Food 101 dataset
 
 ## Schema
 ### Models
